@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import authToken from './auth_token';
+import Table_Header from './Table_Header';
+import Table_Entry from './Table_Entry';
 
 class App extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             isLoading: true,
             error: null,
             standings: null,
             teams: null,
-            matches: null
-
-        };
+            matches: null,
+            APIStringArray: [
+								// leave these here for future data fetching
+                `http://api.football-data.org/v2/competitions/2021/standings`,
+                `http://api.football-data.org/v2/competitions/2021/teams`,
+                `http://api.football-data.org/v2/competitions/2021/matches`
+            ]
+				};
+				this.fetchStandings = this.fetchStandings.bind(this);
     }
 
-    componentDidMount() {
-        this.fetchStandings();
-        this.fetchTeams();
-        this.fetchMatches();
+    componentWillMount() {
+				this.fetchStandings();
       }
 
       fetchStandings() {
@@ -39,57 +45,39 @@ class App extends Component {
           .catch(error => this.setState({ error, isLoading: false }));
       }  
 
-      fetchTeams() {
-        fetch(`http://api.football-data.org/v2/competitions/2021/teams`, 
-        { 
-            headers : {
-                'X-Auth-Token': authToken
-            }
-        } )
-          .then(response => response.json())
-          .then(data =>
-            this.setState({
-              teams: data,
-              isLoading: false,
-            })
-          )
-          .catch(error => this.setState({ error, isLoading: false }));
-      }
-
-      fetchMatches() {
-        fetch(`http://api.football-data.org/v2/competitions/2021/matches`, 
-        { 
-            headers : {
-                'X-Auth-Token': authToken
-            }
-        } )
-          .then(response => response.json())
-          .then(data =>
-            this.setState({
-              matches: data,
-              isLoading: false,
-            })
-          )
-          .catch(error => this.setState({ error, isLoading: false }));
-      }
-
     render() {
-        const { isLoading, userData, error } = this.state
         return (
-            <React.Fragment>
-                {error ? <p>{error.message}</p> : null}
-
-                {!isLoading ? (
-        <p>Map data into a league table here</p>
-      // If there is a delay in data, let's let the user know it's loading
-      ) : (
-        <h3>Loading...</h3>
-      )}
-            </React.Fragment>
+					// ternery statement gives access to API data once state has updated
+					this.state.standings ? 
+						<div>
+							<table width="750">
+								<tbody>
+									<Table_Header/>
+										{
+											this.state.standings.standings[0].table.map((item, i) => 
+												<Table_Entry
+													key={i}
+													position={item.position}
+													team={item.team.name}
+													played={item.playedGames}
+													won={item.won}
+													drawn={item.draw}
+													lost={item.lost}
+													gf={item.goalsFor}
+													ga={item.goalsAgainst}
+													gd={item.goalDifference}
+													points={item.points}
+												/>)
+										}
+								</tbody>
+							</table>
+								{console.log(this.state.standings.standings[0].table)}																							
+						</div> : <div>Loading</div>
+					
         )
     }
 
-}
+}	
 
 export default App;
 

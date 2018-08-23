@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Tr from './Table_Row';
 import styled, { css } from 'styled-components';
 
 class Table_Entry extends Component {
@@ -8,11 +7,8 @@ class Table_Entry extends Component {
     // you don’t need to implement a constructor for your React component.  
 
     render() {
-        // console.log(this.props.position)
-        const { position } = this.props
-        console.log(position)
         return(
-            <Tr>
+            <Tr {...this.props}>
                 <td>{this.props.position}</td>
                 <td>{this.props.team}</td>
                 <td>{this.props.played}</td>
@@ -32,22 +28,9 @@ class Table_Entry extends Component {
 export default Table_Entry;
 
 const Tr = styled.tr`
-    border-top: ${}
+    border-top: ${props => {
+        if(props.position === 18) {
+            return '1px red dotted'
+        }
+    }}
 `
-
-// const Tr = styled.tr`
-//     border-top: ${(position) =>
-//         position === "18" ?
-//             "1px dotted red" : null
-//     }
-// `
-
-// const Tr = styled.tr`
-//     ${props => props.key === '18' && css`
-//         border-top: 1px dotted red
-//     `}
-// `
-
-// border-top: ${this.props.position ? '1px dotted red' : 'none'}
-// ${key==='18' ? '1px dotted red' : 'none'}
-

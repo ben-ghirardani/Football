@@ -15,7 +15,6 @@ class App extends Component {
             teams: null,
             matches: null,
             APIStringArray: [
-								// leave these here for future data fetching
                 `http://api.football-data.org/v2/competitions/2021/standings`,
                 `http://api.football-data.org/v2/competitions/2021/teams`,
                 `http://api.football-data.org/v2/competitions/2021/matches`
@@ -70,8 +69,7 @@ class App extends Component {
 												/>)
 										}
 								</tbody>
-							</table>
-								{console.log(this.state.standings.standings[0].table)}																							
+							</table>																						
 						</div> : <div>Loading</div>
 					
         )

@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import authToken from './auth_token';
 import Table_Header from './Table_Header';
 import Table_Entry from './Table_Entry';
-// resolve used in the promise
-import { resolve } from 'path';
 
 class App extends Component {
 

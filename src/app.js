@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import authToken from './auth_token';
 import Table_Header from './Table_Header';
 import Table_Entry from './Table_Entry';
+// resolve used in the promise
+import { resolve } from 'path';
 
 class App extends Component {
 
@@ -13,22 +15,21 @@ class App extends Component {
             error: null,
             standings: null,
             teams: null,
-            matches: null,
-            APIStringArray: [
-                `http://api.football-data.org/v2/competitions/2021/standings`,
-                `http://api.football-data.org/v2/competitions/2021/teams`,
-                `http://api.football-data.org/v2/competitions/2021/matches`
-            ]
+            matches: null
 				};
 				this.fetchStandings = this.fetchStandings.bind(this);
+				this.fetchTeams = this.fetchTeams.bind(this);
+				this.fetchMatches = this.fetchMatches.bind(this);
     }
 
     componentWillMount() {
 				this.fetchStandings();
-      }
+				this.fetchTeams();
+				this.fetchMatches();
+		}
 
-      fetchStandings() {
-        fetch(`http://api.football-data.org/v2/competitions/2021/standings`, 
+    fetchStandings() {
+      fetch(`http://api.football-data.org/v2/competitions/2021/standings`, 
         { 
             headers : {
                 'X-Auth-Token': authToken
@@ -42,7 +43,39 @@ class App extends Component {
             })
           )
           .catch(error => this.setState({ error, isLoading: false }));
-      }  
+		}		
+
+		fetchTeams() {
+      fetch(`http://api.football-data.org/v2/competitions/2021/teams`, 
+        { 
+            headers : {
+                'X-Auth-Token': authToken
+            }
+        } )
+          .then(response => response.json())
+          .then(data =>
+            this.setState({
+              teams: data
+            })
+          )
+          .catch(error => this.setState({ error, isLoading: false }));
+		}		
+
+		fetchMatches() {
+      fetch(`http://api.football-data.org/v2/competitions/2021/matches`, 
+        { 
+            headers : {
+                'X-Auth-Token': authToken
+            }
+        } )
+          .then(response => response.json())
+          .then(data =>
+            this.setState({
+              matches: data
+            })
+          )
+          .catch(error => this.setState({ error, isLoading: false }));
+		}
 
     render() {
         return (

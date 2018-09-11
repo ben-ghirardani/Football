@@ -9,16 +9,16 @@ class Table_Entry extends Component {
     render() {
         return(
             <Tr {...this.props}>
-                <td>{this.props.position}</td>
-                <td>{this.props.team}</td>
-                <td>{this.props.played}</td>
-                <td>{this.props.won}</td>
-                <td>{this.props.drawn}</td>
-                <td>{this.props.lost}</td>
-                <td>{this.props.gf}</td>
-                <td>{this.props.ga}</td>
-                <td>{this.props.gd}</td>
-                <td>{this.props.points}</td>
+                <Td>{this.props.position}</Td>
+                <Td>{this.props.team}</Td>
+                <Td>{this.props.played}</Td>
+                <Td>{this.props.won}</Td>
+                <Td>{this.props.drawn}</Td>
+                <Td>{this.props.lost}</Td>
+                <Td>{this.props.gf}</Td>
+                <Td>{this.props.ga}</Td>
+                <Td>{this.props.gd}</Td>
+                <Td>{this.props.points}</Td>
             </Tr>
         )
     }
@@ -33,4 +33,11 @@ const Tr = styled.tr`
             return '1px red dotted'
         }
     }}
+`
+
+const Td = styled.td`
+    color: black;
+    &:hover{
+        color: green
+    }
 `

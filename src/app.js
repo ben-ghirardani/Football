@@ -16,7 +16,7 @@ class App extends Component {
             teams: null,
 						matches: null,
 						teamSelectedGames: null,
-						// Only one of the following three properties should be not null at any given time.  
+						// Only one of the following three properties should be 'not null' at any given time.  
 						// This determines which component shuld be rendered.
 						teamSelected: null,
 						table: null,
@@ -122,15 +122,12 @@ class App extends Component {
 				)
 			}
 			else if (this.state.teamSelected) {
-				let allMatches = this.state.matches;
-				// let thisTeamMatches = allMatches.map
-				console.log(allMatches.matches)
 					return(
 						<div> 
-							Team Matches
-							{
-								
-							} 
+							<Team_Matches
+								teamName={this.state.teamSelected}
+								matches={this.state.matches}
+							/>
 						</div>
 				)
 			}

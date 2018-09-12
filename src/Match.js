@@ -5,10 +5,16 @@ class Match extends Component {
 
     render() {
         return(
-            <div>Single match test info</div>
+            <div>
+                {console.log("from <Match/> ", this.props.homeTeam)}
+                <div>{this.props.homeTeam}</div>
+            </div>
         )
     }
 
 }
 
 export default Match;
+
+// {this.props.homeTeam}  
+// {this.props.awayTeam}

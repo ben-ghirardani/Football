@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import authToken from './auth_token';
 import Table_Header from './Table_Header';
 import Table_Entry from './Table_Entry';
+import Team_Matches from './Team_Matches';
 
 class App extends Component {
 
@@ -14,12 +15,18 @@ class App extends Component {
             standings: null,
             teams: null,
 						matches: null,
-						teamSelected: null
+						teamSelectedGames: null,
+						// Only one of the following three properties should be not null at any given time.  
+						// This determines which component shuld be rendered.
+						teamSelected: null,
+						table: null,
+						match: null
 				};
 				this.fetchStandings = this.fetchStandings.bind(this);
 				this.fetchTeams = this.fetchTeams.bind(this);
 				this.fetchMatches = this.fetchMatches.bind(this);
 				this.getTeamNameFromTableRow = this.getTeamNameFromTableRow.bind(this);
+				this.renderComponentBasedOnState = this.renderComponentBasedOnState.bind(this);
     }
 
     componentWillMount() {
@@ -39,7 +46,8 @@ class App extends Component {
           .then(data =>
             this.setState({
               standings: data,
-              isLoading: false,
+							isLoading: false,
+							table: "display"
             })
           )
           .catch(error => this.setState({ error, isLoading: false }));
@@ -77,15 +85,17 @@ class App extends Component {
           .catch(error => this.setState({ error, isLoading: false }));
 		}
 
-		getTeamNameFromTableRow(data) {
-			this.setState({teamSelected: data})
+		getTeamNameFromTableRow(teamName) {
+			this.setState({
+				teamSelected: teamName,
+				table: null
+			})
 		}
 
-    render() {
-        return (
-					// ternery statement gives access to API data once state has updated
-					this.state.standings ? 
-						<div>
+		renderComponentBasedOnState() {
+			if (this.state.table) {
+				return(
+					<div>
 							<table width="750">
 								<tbody>
 									<Table_Header/>
@@ -108,8 +118,37 @@ class App extends Component {
 										}
 								</tbody>
 							</table>																						
-						</div> : <div>Loading</div>
-					
+						</div>
+				)
+			}
+			else if (this.state.teamSelected) {
+				let allMatches = this.state.matches;
+				// let thisTeamMatches = allMatches.map
+				console.log(allMatches.matches)
+					return(
+						<div> 
+							Team Matches
+							{
+								
+							} 
+						</div>
+				)
+			}
+			else if (this.state.match) {
+				return(
+					<div> Details of a particular match </div>
+				)
+			}
+			else {
+				<div>Loading</div>
+			}
+		}
+
+    render() {
+        return (
+					<div>
+						{this.renderComponentBasedOnState()}
+					</div>
         )
     }
 

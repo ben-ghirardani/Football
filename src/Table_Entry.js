@@ -4,11 +4,24 @@ import styled, { css } from 'styled-components';
 class Table_Entry extends Component {
 
     // If you don’t initialize state and you don’t bind methods, 
-    // you don’t need to implement a constructor for your React component.  
+    // you don’t need to implement a constructor for your React component. 
+
+    constructor(props) {
+        super(props);
+        this.onClickTableRow = this.onClickTableRow.bind(this);
+    }
+
+    onClickTableRow(){
+        console.log(this.props.team)
+        let team = this.props.team;
+        this.props.getTeamNameFromTableRow(team);
+    }
 
     render() {
         return(
-            <Tr {...this.props}>
+            <Tr {...this.props}
+                onClick={this.onClickTableRow}
+            >
                 <Td>{this.props.position}</Td>
                 <Td>{this.props.team}</Td>
                 <Td>{this.props.played}</Td>

@@ -13,11 +13,13 @@ class App extends Component {
             error: null,
             standings: null,
             teams: null,
-            matches: null
+						matches: null,
+						teamSelected: null
 				};
 				this.fetchStandings = this.fetchStandings.bind(this);
 				this.fetchTeams = this.fetchTeams.bind(this);
 				this.fetchMatches = this.fetchMatches.bind(this);
+				this.getTeamNameFromTableRow = this.getTeamNameFromTableRow.bind(this);
     }
 
     componentWillMount() {
@@ -75,6 +77,10 @@ class App extends Component {
           .catch(error => this.setState({ error, isLoading: false }));
 		}
 
+		getTeamNameFromTableRow(data) {
+			this.setState({teamSelected: data})
+		}
+
     render() {
         return (
 					// ternery statement gives access to API data once state has updated
@@ -86,6 +92,7 @@ class App extends Component {
 										{
 											this.state.standings.standings[0].table.map((item, i) => 
 												<Table_Entry
+													getTeamNameFromTableRow={this.getTeamNameFromTableRow}
 													key={i}
 													position={item.position}
 													team={item.team.name}

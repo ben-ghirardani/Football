@@ -6,8 +6,9 @@ class Match extends Component {
     render() {
         return(
             <div>
-                {console.log("from <Match/> ", this.props.homeTeam)}
-                <div>{this.props.homeTeam}</div>
+                {this.props.homeTeam}
+                {this.props.awayTeam}
+                {this.props.matchDay}
             </div>
         )
     }
@@ -15,6 +16,3 @@ class Match extends Component {
 }
 
 export default Match;
-
-// {this.props.homeTeam}  
-// {this.props.awayTeam}

@@ -12,7 +12,7 @@ class Table_Entry extends Component {
     }
 
     onClickTableRow(){
-        console.log(this.props.team)
+        console.log("row 15", this.props.team)
         let team = this.props.team;
         this.props.getTeamNameFromTableRow(team);
     }

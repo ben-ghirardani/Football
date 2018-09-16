@@ -7,3 +7,8 @@ Add an onClick event to the Tr in <Table_Entry/> that takes the name of team tha
 Use this name to render <Matches/> using this.state.teamSelected as the team name to filter by. 
 
 To navigate back to standings screen, return this.state.teamSelected to null? Render stadnigns screen based on this.state.teamSelected being null.
+
+
+
+
+To Do - fix getTeamMatches() from App.js as it is currently pulling in all games, not filtering by team name.

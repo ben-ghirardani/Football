@@ -4,6 +4,7 @@ import authToken from './auth_token';
 import Table_Header from './Table_Header';
 import Table_Entry from './Table_Entry';
 import Team_Matches from './Team_Matches';
+import Match from './Match';
 
 class App extends Component {
 
@@ -17,7 +18,7 @@ class App extends Component {
 						matches: null,
 						teamSelectedGames: null,
 						// Only one of the following three properties should be 'not null' at any given time.  
-						// This determines which component shuld be rendered.
+						// This determines which component should be rendered.
 						teamSelected: null,
 						table: null,
 						match: null
@@ -27,6 +28,7 @@ class App extends Component {
 				this.fetchMatches = this.fetchMatches.bind(this);
 				this.getTeamNameFromTableRow = this.getTeamNameFromTableRow.bind(this);
 				this.renderComponentBasedOnState = this.renderComponentBasedOnState.bind(this);
+				this.getTeamMatches = this.getTeamMatches.bind(this);
     }
 
     componentWillMount() {
@@ -92,6 +94,28 @@ class App extends Component {
 			})
 		}
 
+		// every game is getting pushed to the array, still not pulling out only games that match the selected game
+		// getTeamMatches(team, allMatches) {
+		// 	const teamMatches = [];
+		// 		for (let i = 0; i < allMatches.length; i++) {
+		// 			let match = allMatches[i];
+		// 				if(match.awayTeam === team) {
+		// 					teamMatches.push(match)
+		// 				}
+		// 	}
+		// 	console.log("from method getTeamMatches", teamMatches)
+		// }
+
+		getTeamMatches(team, allMatches) {
+			const teamMatches = [];
+			allMatches.forEach(((match) => {
+				if(match.awayTeam || match.homeTeam === team) {
+					teamMatches.push(match);
+				}	
+			}))
+			console.log("forEach method - ", teamMatches)
+		}
+
 		renderComponentBasedOnState() {
 			if (this.state.table) {
 				return(
@@ -125,8 +149,9 @@ class App extends Component {
 					return(
 						<div> 
 							<Team_Matches
+								getTeamMatches={this.getTeamMatches}
 								teamName={this.state.teamSelected}
-								matches={this.state.matches}
+								matches={this.state.matches.matches}
 							/>
 						</div>
 				)

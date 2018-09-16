@@ -6,7 +6,7 @@ class Team_Matches extends Component {
 
     constructor(props) {
         super(props);
-        this.getTeamMatches = this.getTeamMatches.bind(this);
+        // this.getTeamMatches = this.getTeamMatches.bind(this);
     }
 
         // does not work, find a way to loop through matches, finding any that matches the selected team name,
@@ -23,23 +23,24 @@ class Team_Matches extends Component {
     //     }
     // }
 
-    getTeamMatches(matches) {
-        for (let i = 0; i < matches.length; i++ ) {
-            let match = matches[i]
-            if(match.homeTeam || match.awayTeam === this.props.teamName) {
-                console.log(match.id)
-                // games.push(match.id)
-                
-            }
-        }
-    }
+    // getTeamMatches(matches) {
+    //     let games = [];
+    //     for (let i = 0; i < matches.length; i++ ) {
+    //         let match = matches[i]
+    //         if(match.homeTeam || match.awayTeam === this.props.teamName) {
+    //             games.push(match)
+    //         }
+    //     }
+    //     console.log("games array", games)
+    //     // return games;
+    // }
 
     render() {
-        let matchPropData = this.props.matches.matches;
+        // let matchPropData = this.props.matches.matches;
         return(
             <div>
                 <h1>{this.props.teamName}</h1>
-                <p> {console.log(matchPropData)} </p>
+                <p> {this.props.getTeamMatches(this.props.teamName, this.props.matches)} </p>
                 <Match/>
             </div>
         )

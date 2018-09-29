@@ -4,43 +4,22 @@ import Match from './Match';
 
 class Team_Matches extends Component {
 
+    // does this component still need a constructor?
     constructor(props) {
         super(props);
-        // this.getTeamMatches = this.getTeamMatches.bind(this);
     }
 
-        // does not work, find a way to loop through matches, finding any that matches the selected team name,
-        // and mapping the details from that match to the <Match/> component.
-
-    // getMatches() {
-    //     let matches = this.props.matches.matches;
-    //     for (let i = 0; i < matches.length; i++) {
-    //         const match = matches[i];
-    //         if(match.homeTeam || match.awayTeam === this.props.teamName) {
-                
-    //         }
-    //         return theMatch
-    //     }
-    // }
-
-    // getTeamMatches(matches) {
-    //     let games = [];
-    //     for (let i = 0; i < matches.length; i++ ) {
-    //         let match = matches[i]
-    //         if(match.homeTeam || match.awayTeam === this.props.teamName) {
-    //             games.push(match)
-    //         }
-    //     }
-    //     console.log("games array", games)
-    //     // return games;
-    // }
 
     render() {
-        // let matchPropData = this.props.matches.matches;
         return(
             <div>
                 <h1>{this.props.teamName}</h1>
-                <p> {this.props.getTeamMatches(this.props.teamName, this.props.matches)} </p>
+                <p> 
+                    {/* use the output of combineHomeAndAway to populate a new component that is a series of games/results */}
+                    {
+                        this.props.combineHomeAndAway(this.props.teamName, this.props.matches)
+                    }
+                </p>
                 <Match/>
             </div>
         )

@@ -16,6 +16,8 @@ class App extends Component {
             standings: null,
             teams: null,
 						matches: null,
+						// not using orderedMatches yet
+						orderedMatches: null,
 						teamSelectedGames: null,
 						// Only one of the following three properties should be 'not null' at any given time.  
 						// This determines which component should be rendered.
@@ -28,7 +30,7 @@ class App extends Component {
 				this.fetchMatches = this.fetchMatches.bind(this);
 				this.getTeamNameFromTableRow = this.getTeamNameFromTableRow.bind(this);
 				this.renderComponentBasedOnState = this.renderComponentBasedOnState.bind(this);
-				this.getTeamMatches = this.getTeamMatches.bind(this);
+				this.combineHomeAndAway = this.combineHomeAndAway.bind(this);
     }
 
     componentWillMount() {
@@ -94,26 +96,29 @@ class App extends Component {
 			})
 		}
 
-		// every game is getting pushed to the array, still not pulling out only games that match the selected game
-		// getTeamMatches(team, allMatches) {
-		// 	const teamMatches = [];
-		// 		for (let i = 0; i < allMatches.length; i++) {
-		// 			let match = allMatches[i];
-		// 				if(match.awayTeam === team) {
-		// 					teamMatches.push(match)
-		// 				}
-		// 	}
-		// 	console.log("from method getTeamMatches", teamMatches)
-		// }
+		combineHomeAndAway(team, allMatches) {
+			const homeMatches = [];
+			const awayMatches = [];
+			const orderedMatches = [];
 
-		getTeamMatches(team, allMatches) {
-			const teamMatches = [];
 			allMatches.forEach(((match) => {
-				if(match.awayTeam || match.homeTeam === team) {
-					teamMatches.push(match);
+				if(match.homeTeam.name === team) {
+					homeMatches.push(match);
 				}	
 			}))
-			console.log("forEach method - ", teamMatches)
+
+			allMatches.forEach(((match) => {
+				if(match.awayTeam.name === team) {
+					awayMatches.push(match);
+				}	
+			}))
+			let comboMatches = homeMatches.concat(awayMatches);
+
+			comboMatches.forEach((match) => {
+				orderedMatches.splice(match.matchday - 1, 0, match)		
+			})
+			console.log("ordered matches - ", orderedMatches)
+			// return orderedMatches;
 		}
 
 		renderComponentBasedOnState() {
@@ -149,7 +154,7 @@ class App extends Component {
 					return(
 						<div> 
 							<Team_Matches
-								getTeamMatches={this.getTeamMatches}
+								combineHomeAndAway={this.combineHomeAndAway}
 								teamName={this.state.teamSelected}
 								matches={this.state.matches.matches}
 							/>

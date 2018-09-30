@@ -17,7 +17,6 @@ class App extends Component {
             teams: null,
 						matches: null,
 						teamSelectedGames: null,
-						// not using teamSeasonGames yet
 						teamSeasonGames: null,
 						// Only one of the following three properties should be 'not null' at any given time.  
 						// This determines which component should be rendered.
@@ -122,12 +121,8 @@ class App extends Component {
 			comboMatches.forEach((match) => {
 				orderedMatches.splice(match.matchday - 1, 0, match)		
 			})
-			// is calling setState here causing a re-render which calls the function again (and again and again, etc)?
-			// console.log("ordered matches - ", orderedMatches)
+			// don't setState here as it will re-render infinitely
 			return orderedMatches;
-			// if(orderedMatches.length === 38) {
-			// 	this.setState({teamSeasonGames: orderedMatches})
-			// }
 		}
 
 		renderComponentBasedOnState() {
@@ -166,9 +161,7 @@ class App extends Component {
 					return(
 						<div> 
 							<Team_Matches
-								combineHomeAndAway={this.combineHomeAndAway}
-								teamName={this.state.teamSelected}
-								matches={this.state.matches.matches}
+								teamSeasonGames={this.state.teamSeasonGames}
 							/>
 						</div>
 				)

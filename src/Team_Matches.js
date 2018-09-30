@@ -15,7 +15,11 @@ class Team_Matches extends Component {
             <div>
                 <h1>{this.props.teamName}</h1>
                 <p> 
-            
+                    {/* 
+                        map through this.props.teamSeasonGames and create a series of 
+                        Match components (similar to Table_Entry in App) that populate with 
+                        details of each individual game
+                    */}
                 </p>
                 <Match/>
             </div>

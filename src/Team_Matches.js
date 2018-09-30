@@ -15,10 +15,7 @@ class Team_Matches extends Component {
             <div>
                 <h1>{this.props.teamName}</h1>
                 <p> 
-                    {/* use the output of combineHomeAndAway to populate a new component that is a series of games/results */}
-                    {
-                        this.props.combineHomeAndAway(this.props.teamName, this.props.matches)
-                    }
+            
                 </p>
                 <Match/>
             </div>

@@ -16,9 +16,9 @@ class App extends Component {
             standings: null,
             teams: null,
 						matches: null,
-						// not using orderedMatches yet
-						orderedMatches: null,
 						teamSelectedGames: null,
+						// not using teamSeasonGames yet
+						teamSeasonGames: null,
 						// Only one of the following three properties should be 'not null' at any given time.  
 						// This determines which component should be rendered.
 						teamSelected: null,
@@ -31,6 +31,7 @@ class App extends Component {
 				this.getTeamNameFromTableRow = this.getTeamNameFromTableRow.bind(this);
 				this.renderComponentBasedOnState = this.renderComponentBasedOnState.bind(this);
 				this.combineHomeAndAway = this.combineHomeAndAway.bind(this);
+				this.setTeamSeasonGames = this.setTeamSeasonGames.bind(this);
     }
 
     componentWillMount() {
@@ -96,6 +97,10 @@ class App extends Component {
 			})
 		}
 
+		setTeamSeasonGames(seasonData) {
+			this.setState({teamSeasonGames: seasonData})
+		}
+
 		combineHomeAndAway(team, allMatches) {
 			const homeMatches = [];
 			const awayMatches = [];
@@ -117,8 +122,12 @@ class App extends Component {
 			comboMatches.forEach((match) => {
 				orderedMatches.splice(match.matchday - 1, 0, match)		
 			})
-			console.log("ordered matches - ", orderedMatches)
-			// return orderedMatches;
+			// is calling setState here causing a re-render which calls the function again (and again and again, etc)?
+			// console.log("ordered matches - ", orderedMatches)
+			return orderedMatches;
+			// if(orderedMatches.length === 38) {
+			// 	this.setState({teamSeasonGames: orderedMatches})
+			// }
 		}
 
 		renderComponentBasedOnState() {
@@ -132,6 +141,9 @@ class App extends Component {
 											this.state.standings.standings[0].table.map((item, i) => 
 												<Table_Entry
 													getTeamNameFromTableRow={this.getTeamNameFromTableRow}
+													combineHomeAndAway={this.combineHomeAndAway}
+													matches={this.state.matches}
+													setTeamSeasonGames={this.setTeamSeasonGames}
 													key={i}
 													position={item.position}
 													team={item.team.name}

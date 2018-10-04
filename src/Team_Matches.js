@@ -7,11 +7,6 @@ class Team_Matches extends Component {
     // does this component still need a constructor?
     constructor(props) {
         super(props);
-        this.onClickMatch = this.onClickMatch.bind(this);
-    }
-
-    onClickMatch() {
-        console.log("you clicked on a match!")
     }
 
     render() {
@@ -22,12 +17,13 @@ class Team_Matches extends Component {
                     {
                         this.props.teamSeasonGames.map((item, i) =>
                             <Match
-                                onClickMatch={this.onClickMatch}
+                                id={item.id}
                                 key={i}
                                 homeTeam={item.homeTeam.name}
                                 awayTeam={item.awayTeam.name}
                                 matchDay={item.matchday}
                                 score={item.score}
+                                fetchSingleMatch={this.props.fetchSingleMatch}
                             />    
                         )
                     }                    

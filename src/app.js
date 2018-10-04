@@ -16,6 +16,7 @@ class App extends Component {
             standings: null,
             teams: null,
 						matches: null,
+						singleMatch: null,
 						teamSelectedGames: null,
 						teamSeasonGames: null,
 						// Only one of the following three properties should be 'not null' at any given time.  
@@ -27,6 +28,7 @@ class App extends Component {
 				this.fetchStandings = this.fetchStandings.bind(this);
 				this.fetchTeams = this.fetchTeams.bind(this);
 				this.fetchMatches = this.fetchMatches.bind(this);
+				this.fetchSingleMatch = this.fetchSingleMatch.bind(this);
 				this.getTeamNameFromTableRow = this.getTeamNameFromTableRow.bind(this);
 				this.renderComponentBasedOnState = this.renderComponentBasedOnState.bind(this);
 				this.combineHomeAndAway = this.combineHomeAndAway.bind(this);
@@ -87,6 +89,22 @@ class App extends Component {
             })
           )
           .catch(error => this.setState({ error, isLoading: false }));
+		}
+
+		fetchSingleMatch(matchID) {
+      fetch(`http://api.football-data.org/v2/matches/`+matchID, 
+        { 
+            headers : {
+                'X-Auth-Token': authToken
+            }
+        } )
+          .then(response => response.json())
+          .then(data =>
+            this.setState({
+              singleMatch: data
+            })
+          )
+					.catch(error => this.setState({ error, isLoading: false }));
 		}
 
 		getTeamNameFromTableRow(teamName) {
@@ -163,6 +181,7 @@ class App extends Component {
 							<Team_Matches
 								teamSelected={this.state.teamSelected}
 								teamSeasonGames={this.state.teamSeasonGames}
+								fetchSingleMatch={this.fetchSingleMatch}
 							/>
 						</div>
 				)

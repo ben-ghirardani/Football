@@ -161,6 +161,7 @@ class App extends Component {
 					return(
 						<div> 
 							<Team_Matches
+								teamSelected={this.state.teamSelected}
 								teamSeasonGames={this.state.teamSeasonGames}
 							/>
 						</div>

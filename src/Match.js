@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
+// do I need idDate?
 import { isDate } from 'util';
 
 class Match extends Component {
@@ -9,13 +10,12 @@ class Match extends Component {
         this.onClickMatch = this.onClickMatch.bind(this);
     }
 
-    // this is successfully pulling single match data
     onClickMatch() {
-        console.log("you clicked on a match!")
         let ID = this.props.id
-        let IDintoString = ID.toString()
-        this.props.fetchSingleMatch(IDintoString)
-
+        this.props.getMatchID(ID)
+        let match = this.props.useMatchIDToFilterGame(ID)
+        this.props.sendReturnedMatchToState(match)
+        this.props.switchViewComponent("match")
     }
 
     render() {

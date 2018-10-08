@@ -11,8 +11,8 @@ class Table_Entry extends Component {
         this.onClickTableRow = this.onClickTableRow.bind(this);
     }
 
-    // gets the team name from the row and uses to populate an array of games only related to that team
     onClickTableRow() {
+        // create state: lastUsedTeamName in order to naviagte back to previously selected teams games
         let team = this.props.team;
         this.props.getTeamNameFromTableRow(team);
         this.props.setTeamSeasonGames(this.props.combineHomeAndAway(team, this.props.matches.matches))

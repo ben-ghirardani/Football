@@ -24,6 +24,11 @@ class Team_Matches extends Component {
                                 matchDay={item.matchday}
                                 score={item.score}
                                 fetchSingleMatch={this.props.fetchSingleMatch}
+                                switchViewComponent={this.props.switchViewComponent}
+                                getMatchID={this.props.getMatchID}
+                                useMatchIDToFilterGame={this.props.useMatchIDToFilterGame}
+                                sendReturnedMatchToState={this.props.sendReturnedMatchToState}
+                                singleMatch={this.props.singleMatch}
                             />    
                         )
                     }                    

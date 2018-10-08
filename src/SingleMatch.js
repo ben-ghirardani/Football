@@ -11,6 +11,7 @@ class SingleMatch extends Component {
         return(
             <div>
                 Oh hi! I'm a sinlge match!
+                {console.log(this.props.singleMatch)}
             </div>
         )
     }

@@ -263,8 +263,7 @@ class App extends Component {
 				return(
 					<div>
 							<SingleMatch
-								matchID={this.state.singleMatchID}
-								matches={this.state.matches}
+								singleMatch={this.state.singleMatch[0]}
 							/>
 					</div>
 				)

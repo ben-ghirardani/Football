@@ -18,6 +18,7 @@ class App extends Component {
 						matches: null,
 						singleMatchID: null,
 						singleMatch: null,
+						// fullMatchData: null,
 						teamSelectedGames: null,
 						teamSeasonGames: null,
 						lastUsedTeamName: null,
@@ -30,6 +31,7 @@ class App extends Component {
 				this.fetchStandings = this.fetchStandings.bind(this);
 				this.fetchTeams = this.fetchTeams.bind(this);
 				this.fetchMatches = this.fetchMatches.bind(this);
+				// this.fetchSingleMatch = this.fetchSingleMatch.bind(this);
 				this.getTeamNameFromTableRow = this.getTeamNameFromTableRow.bind(this);
 				this.renderComponentBasedOnState = this.renderComponentBasedOnState.bind(this);
 				this.combineHomeAndAway = this.combineHomeAndAway.bind(this);
@@ -102,7 +104,7 @@ class App extends Component {
 		// http://api.football-data.org/v2/teams/759/matches
 
 		// fetchSingleMatch(matchID) {
-    //   fetch(`http://api.football-data.org/v2/matches/`+matchID, 
+    //   fetch(`http://staging-api.football-data.org/v2/matches/`+matchID, 
     //     { 
     //         headers : {
     //             'X-Auth-Token': authToken
@@ -111,7 +113,7 @@ class App extends Component {
     //       .then(response => response.json())
     //       .then(data =>
     //         this.setState({
-    //           singleMatch: data
+    //           fullMatchData: data
     //         })
     //       )
 		// 			.catch(error => this.setState({ error, isLoading: false }));
@@ -129,7 +131,7 @@ class App extends Component {
 			} else if (nameOfView === "teamSelected") {
 					this.setState({
 						table: null,
-						teamSelected: lastUsedTeamName,
+						teamSelected: this.state.lastUsedTeamName,
 						match: null  
 					})
 			} else if (nameOfView === "match") {
@@ -255,6 +257,7 @@ class App extends Component {
 								useMatchIDToFilterGame={this.useMatchIDToFilterGame}
 								sendReturnedMatchToState={this.sendReturnedMatchToState}
 								singleMatch={this.state.singleMatch}
+								// fetchSingleMatch={this.fetchSingleMatch}
 							/>	
 						</div>
 				)
@@ -264,6 +267,10 @@ class App extends Component {
 					<div>
 							<SingleMatch
 								singleMatch={this.state.singleMatch[0]}
+								// won't use teamSelected in this instance?
+								teamSelected={this.state.teamSelected}
+								match={this.state.match}
+								switchViewComponent={this.switchViewComponent}
 							/>
 					</div>
 				)

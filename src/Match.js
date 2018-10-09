@@ -14,6 +14,7 @@ class Match extends Component {
         let ID = this.props.id
         this.props.getMatchID(ID)
         let match = this.props.useMatchIDToFilterGame(ID)
+        // this.props.fetchSingleMatch(ID)
         this.props.sendReturnedMatchToState(match)
         this.props.switchViewComponent("match")
     }

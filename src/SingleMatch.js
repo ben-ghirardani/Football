@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
+import BackButton from './BackButton';
 
 class SingleMatch extends Component {
 
@@ -10,6 +11,10 @@ class SingleMatch extends Component {
     render() {
         return(
             <div>
+                <BackButton
+                    switchViewComponent={this.props.switchViewComponent}
+                    match={this.props.match}
+                />
                 {this.props.singleMatch.homeTeam.name}{" "}
                 {"("}{this.props.singleMatch.score.halfTime.homeTeam}{") "}
                 {this.props.singleMatch.score.fullTime.homeTeam}

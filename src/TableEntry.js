@@ -12,7 +12,6 @@ class TableEntry extends Component {
     }
 
     onClickTableRow() {
-        // create state: lastUsedTeamName in order to naviagte back to previously selected teams games
         let team = this.props.team;
         this.props.getTeamNameFromTableRow(team);
         this.props.setTeamSeasonGames(this.props.combineHomeAndAway(team, this.props.matches.matches))

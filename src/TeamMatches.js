@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import styled, { css } from 'styled-components';
 import Match from './Match';
+import BackButton from './BackButton';
 
 class TeamMatches extends Component {
 
@@ -13,6 +14,12 @@ class TeamMatches extends Component {
         return(
             <div>
                 <h1>{this.props.teamSelected}</h1>
+                <BackButton
+                    teamSelected={this.props.teamSelected}
+                    // won't use match in this instance?
+                    match={this.props.match}
+                    switchViewComponent={this.props.switchViewComponent}
+                />
                 <div> 
                     {
                         this.props.teamSeasonGames.map((item, i) =>
@@ -23,7 +30,7 @@ class TeamMatches extends Component {
                                 awayTeam={item.awayTeam.name}
                                 matchDay={item.matchday}
                                 score={item.score}
-                                fetchSingleMatch={this.props.fetchSingleMatch}
+                                // fetchSingleMatch={this.props.fetchSingleMatch}
                                 switchViewComponent={this.props.switchViewComponent}
                                 getMatchID={this.props.getMatchID}
                                 useMatchIDToFilterGame={this.props.useMatchIDToFilterGame}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 
-class Table_Entry extends Component {
+class TableEntry extends Component {
 
     // If you don’t initialize state and you don’t bind methods, 
     // you don’t need to implement a constructor for your React component. 
@@ -39,7 +39,7 @@ class Table_Entry extends Component {
 
 }
 
-export default Table_Entry;
+export default TableEntry;
 
 const Tr = styled.tr`
     border-top: ${props => {

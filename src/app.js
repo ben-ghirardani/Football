@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import authToken from './auth_token';
-import Table_Header from './Table_Header';
-import Table_Entry from './Table_Entry';
-import Team_Matches from './Team_Matches';
+import TableHeader from './TableHeader';
+import TableEntry from './TableEntry';
+import TeamMatches from './TeamMatches';
 import SingleMatch from './SingleMatch';
 
 class App extends Component {
@@ -30,7 +30,6 @@ class App extends Component {
 				this.fetchStandings = this.fetchStandings.bind(this);
 				this.fetchTeams = this.fetchTeams.bind(this);
 				this.fetchMatches = this.fetchMatches.bind(this);
-				this.fetchSingleMatch = this.fetchSingleMatch.bind(this);
 				this.getTeamNameFromTableRow = this.getTeamNameFromTableRow.bind(this);
 				this.renderComponentBasedOnState = this.renderComponentBasedOnState.bind(this);
 				this.combineHomeAndAway = this.combineHomeAndAway.bind(this);
@@ -46,6 +45,8 @@ class App extends Component {
 				this.fetchTeams();
 				this.fetchMatches();
 		}
+
+		// combine all fetch requests into a Promise? Render loading component until Promise is met, then render
 
     fetchStandings() {
       fetch(`http://api.football-data.org/v2/competitions/2021/standings`, 
@@ -100,21 +101,21 @@ class App extends Component {
 		// refactor at some point to use below endpoint to get lineup of players, need to filter game out
 		// http://api.football-data.org/v2/teams/759/matches
 
-		fetchSingleMatch(matchID) {
-      fetch(`http://api.football-data.org/v2/matches/`+matchID, 
-        { 
-            headers : {
-                'X-Auth-Token': authToken
-            }
-        } )
-          .then(response => response.json())
-          .then(data =>
-            this.setState({
-              singleMatch: data
-            })
-          )
-					.catch(error => this.setState({ error, isLoading: false }));
-		}
+		// fetchSingleMatch(matchID) {
+    //   fetch(`http://api.football-data.org/v2/matches/`+matchID, 
+    //     { 
+    //         headers : {
+    //             'X-Auth-Token': authToken
+    //         }
+    //     } )
+    //       .then(response => response.json())
+    //       .then(data =>
+    //         this.setState({
+    //           singleMatch: data
+    //         })
+    //       )
+		// 			.catch(error => this.setState({ error, isLoading: false }));
+		// }
 
 		// create state: lastUsedTeamName in order to naviagte back to previously selected teams games
 
@@ -217,10 +218,10 @@ class App extends Component {
 					<div>
 							<table width="750">
 								<tbody>
-									<Table_Header/>
+									<TableHeader/>
 										{
 											this.state.standings.standings[0].table.map((item, i) => 
-												<Table_Entry
+												<TableEntry
 													getTeamNameFromTableRow={this.getTeamNameFromTableRow}
 													combineHomeAndAway={this.combineHomeAndAway}
 													matches={this.state.matches}
@@ -246,10 +247,9 @@ class App extends Component {
 			else if (this.state.teamSelected) {
 					return(
 						<div> 
-							<Team_Matches
+							<TeamMatches
 								teamSelected={this.state.teamSelected}
 								teamSeasonGames={this.state.teamSeasonGames}
-								// fetchSingleMatch={this.fetchSingleMatch}
 								switchViewComponent={this.switchViewComponent}
 								getMatchID={this.getMatchID}
 								useMatchIDToFilterGame={this.useMatchIDToFilterGame}

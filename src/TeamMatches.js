@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import styled, { css } from 'styled-components';
 import Match from './Match';
 
-class Team_Matches extends Component {
+class TeamMatches extends Component {
 
     // does this component still need a constructor?
     constructor(props) {
@@ -39,4 +39,4 @@ class Team_Matches extends Component {
 
 }
 
-export default Team_Matches;
+export default TeamMatches;

@@ -10,8 +10,13 @@ class SingleMatch extends Component {
     render() {
         return(
             <div>
-                Oh hi! I'm a sinlge match!
-                {console.log(this.props.singleMatch)}
+                {this.props.singleMatch.homeTeam.name}{" "}
+                {"("}{this.props.singleMatch.score.halfTime.homeTeam}{") "}
+                {this.props.singleMatch.score.fullTime.homeTeam}
+                <br></br>
+                {this.props.singleMatch.awayTeam.name}{" "}
+                {"("}{this.props.singleMatch.score.halfTime.awayTeam}{") "}
+                {this.props.singleMatch.score.fullTime.awayTeam}
             </div>
         )
     }

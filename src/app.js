@@ -5,6 +5,7 @@ import TableHeader from './TableHeader';
 import TableEntry from './TableEntry';
 import TeamMatches from './TeamMatches';
 import SingleMatch from './SingleMatch';
+import BackgroundDiv from './BackgroundDiv';
 
 class App extends Component {
 
@@ -15,38 +16,39 @@ class App extends Component {
             error: null,
             standings: null,
             teams: null,
-						matches: null,
-						singleMatchID: null,
-						singleMatch: null,
-						// fullMatchData: null,
-						teamSelectedGames: null,
-						teamSeasonGames: null,
-						lastUsedTeamName: null,
-						// Only one of the following three properties should be 'not null' at any given time.  
-						// This determines which component should be rendered.
-						teamSelected: null,
-						table: null,
-						match: null
-				};
-				this.fetchStandings = this.fetchStandings.bind(this);
-				this.fetchTeams = this.fetchTeams.bind(this);
-				this.fetchMatches = this.fetchMatches.bind(this);
-				// this.fetchSingleMatch = this.fetchSingleMatch.bind(this);
-				this.getTeamNameFromTableRow = this.getTeamNameFromTableRow.bind(this);
-				this.renderComponentBasedOnState = this.renderComponentBasedOnState.bind(this);
-				this.combineHomeAndAway = this.combineHomeAndAway.bind(this);
-				this.setTeamSeasonGames = this.setTeamSeasonGames.bind(this);
-				this.switchViewComponent = this.switchViewComponent.bind(this);
-				this.getMatchID = this.getMatchID.bind(this);
-				this.useMatchIDToFilterGame = this.useMatchIDToFilterGame.bind(this);
-				this.sendReturnedMatchToState = this.sendReturnedMatchToState.bind(this);
+			matches: null,
+			singleMatchID: null,
+			singleMatch: null,
+			// fullMatchData: null,
+			teamSelectedGames: null,
+			teamSeasonGames: null,
+			lastUsedTeamName: null,
+			// Only one of the following three properties should be 'not null' at any given time.  
+			// This determines which component should be rendered.
+			teamSelected: null,
+			table: null,
+			match: null
+		};
+			this.fetchStandings = this.fetchStandings.bind(this);
+			this.fetchTeams = this.fetchTeams.bind(this);
+			this.fetchMatches = this.fetchMatches.bind(this);
+			// this.fetchSingleMatch = this.fetchSingleMatch.bind(this);
+			this.getTeamNameFromTableRow = this.getTeamNameFromTableRow.bind(this);
+			this.renderComponentBasedOnState = this.renderComponentBasedOnState.bind(this);
+			this.combineHomeAndAway = this.combineHomeAndAway.bind(this);
+			this.setTeamSeasonGames = this.setTeamSeasonGames.bind(this);
+			this.switchViewComponent = this.switchViewComponent.bind(this);
+			this.getMatchID = this.getMatchID.bind(this);
+			this.useMatchIDToFilterGame = this.useMatchIDToFilterGame.bind(this);
+			this.sendReturnedMatchToState = this.sendReturnedMatchToState.bind(this);
     }
 
+	// deprecated? use componentDidMount?
     componentWillMount() {
-				this.fetchStandings();
-				this.fetchTeams();
-				this.fetchMatches();
-		}
+		this.fetchStandings();
+		this.fetchTeams();
+		this.fetchMatches();
+	}
 
 		// combine all fetch requests into a Promise? Render loading component until Promise is met, then render
 
@@ -144,7 +146,7 @@ class App extends Component {
 			else return
 		}
 
-		// does this get replaced by switchViewComponent?
+		// does this get replaced by / combined with switchViewComponent?
 		getTeamNameFromTableRow(teamName) {
 			this.setState({
 				teamSelected: teamName,
@@ -217,7 +219,7 @@ class App extends Component {
 
 			else if (this.state.table) {
 				return(
-					<div>
+					<BackgroundDiv>
 							<table width="750">
 								<tbody>
 									<TableHeader/>
@@ -243,7 +245,7 @@ class App extends Component {
 										}
 								</tbody>
 							</table>																						
-						</div>
+					</BackgroundDiv>
 				)
 			}
 			else if (this.state.teamSelected) {

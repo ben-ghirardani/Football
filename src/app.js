@@ -5,8 +5,9 @@ import TableHeader from './TableHeader';
 import TableEntry from './TableEntry';
 import TeamMatches from './TeamMatches';
 import SingleMatch from './SingleMatch';
-import BackgroundDiv from './BackgroundDiv';
-import OpaqueBackground from './OpaqueBackground';
+import BackgroundDiv from './StyledComponents/BackgroundDiv';
+import OpaqueBackground from './StyledComponents/OpaqueBackground';
+import Table from './StyledComponents/Table';
 
 class App extends Component {
 
@@ -221,7 +222,7 @@ class App extends Component {
 			else if (this.state.table) {
 				return(
 					<OpaqueBackground>
-							<table width="750">
+							<Table width="750">
 								<tbody>
 									<TableHeader/>
 										{
@@ -245,7 +246,7 @@ class App extends Component {
 												/>)
 										}
 								</tbody>
-							</table>																						
+							</Table>																						
 					</OpaqueBackground>
 				)
 			}

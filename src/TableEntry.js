@@ -51,6 +51,6 @@ const Tr = styled.tr`
 const Td = styled.td`
     color: black;
     &:hover{
-        color: green
+        color: blue
     }
 `

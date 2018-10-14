@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
 import FootballBackground from './img/FootballBackground.png';
+import FootballBackground2 from './img/FootballBackground2.png';
+import FootballBackground3 from './img/FootballBackground3.png';
 
 const BackgroundDiv = styled.div`
-    background-image: url(${FootballBackground});
+    background-image: url(${FootballBackground2});
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100%;

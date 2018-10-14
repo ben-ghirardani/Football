@@ -9,7 +9,6 @@ class BackButton extends Component {
     }
 
     onClick() {
-        console.log("I was clicked")
         if(this.props.teamSelected) {
             this.props.switchViewComponent("table")
         } else if (this.props.match) {

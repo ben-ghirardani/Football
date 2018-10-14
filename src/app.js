@@ -6,6 +6,7 @@ import TableEntry from './TableEntry';
 import TeamMatches from './TeamMatches';
 import SingleMatch from './SingleMatch';
 import BackgroundDiv from './BackgroundDiv';
+import OpaqueBackground from './OpaqueBackground';
 
 class App extends Component {
 
@@ -219,7 +220,7 @@ class App extends Component {
 
 			else if (this.state.table) {
 				return(
-					<BackgroundDiv>
+					<OpaqueBackground>
 							<table width="750">
 								<tbody>
 									<TableHeader/>
@@ -245,7 +246,7 @@ class App extends Component {
 										}
 								</tbody>
 							</table>																						
-					</BackgroundDiv>
+					</OpaqueBackground>
 				)
 			}
 			else if (this.state.teamSelected) {
@@ -281,9 +282,9 @@ class App extends Component {
 
     render() {
         return (
-					<div>
+					<BackgroundDiv>
 						{this.renderComponentBasedOnState()}
-					</div>
+					</BackgroundDiv>
         )
     }
 

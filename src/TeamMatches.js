@@ -5,10 +5,8 @@ import BackButton from './BackButton';
 
 class TeamMatches extends Component {
 
-    // does this component still need a constructor?
-    constructor(props) {
-        super(props);
-    }
+    // background stretches as this component extends off the bottom of the scren. 
+    // find a way to have component scroll.
 
     render() {
         return(

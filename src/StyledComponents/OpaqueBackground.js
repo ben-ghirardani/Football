@@ -7,7 +7,7 @@ const OpaqueBackground = styled.div`
     width: 770px;
     position: absolute;
     left: 50%;
-    top: 50%; 
+    top: 60%; 
     margin-left: -375px;
     margin-top: -275px;
     border-radius: 25px;

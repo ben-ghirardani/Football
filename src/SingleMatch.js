@@ -13,7 +13,7 @@ class SingleMatch extends Component {
             <div>
                 <BackButton
                     switchViewComponent={this.props.switchViewComponent}
-                    match={this.props.match}
+                    display={this.props.display}
                 />
                 {this.props.singleMatch.homeTeam.name}{" "}
                 {"("}{this.props.singleMatch.score.halfTime.homeTeam}{") "}

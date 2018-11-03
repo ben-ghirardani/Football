@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+// conditionally change shape to match each component?
+
 // use rgba so child elements don't inerit opacity settings
 const OpaqueBackground = styled.div`
     background-color: rgba(255,255,255,0.25);
@@ -7,7 +9,7 @@ const OpaqueBackground = styled.div`
     width: 770px;
     position: absolute;
     left: 50%;
-    top: 60%; 
+    top: 50%; 
     margin-left: -375px;
     margin-top: -275px;
     border-radius: 25px;

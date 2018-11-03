@@ -21,20 +21,22 @@ class App extends Component {
 			matches: null,
 			singleMatchID: null,
 			singleMatch: null,
-			// fullMatchData: null,
 			teamSelectedGames: null,
 			teamSeasonGames: null,
+			
+
+
 			lastUsedTeamName: null,
-			// Only one of the following three properties should be 'not null' at any given time.  
-			// This determines which component should be rendered.
+
 			teamSelected: null,
 			table: null,
-			match: null
+			match: null,
+			// display replaces teamSelected, table & match. setState of display to "table", 
+			display: null
 		};
 			this.fetchStandings = this.fetchStandings.bind(this);
 			this.fetchTeams = this.fetchTeams.bind(this);
 			this.fetchMatches = this.fetchMatches.bind(this);
-			// this.fetchSingleMatch = this.fetchSingleMatch.bind(this);
 			this.getTeamNameFromTableRow = this.getTeamNameFromTableRow.bind(this);
 			this.renderComponentBasedOnState = this.renderComponentBasedOnState.bind(this);
 			this.combineHomeAndAway = this.combineHomeAndAway.bind(this);
@@ -64,15 +66,15 @@ class App extends Component {
           .then(response => response.json())
           .then(data =>
             this.setState({
-              standings: data,
-							isLoading: false,
-							table: "display"
+              	standings: data,
+				isLoading: false,
+				display: "table"
             })
           )
           .catch(error => this.setState({ error, isLoading: false }));
 		}		
 
-		fetchTeams() {
+	fetchTeams() {
       fetch(`http://api.football-data.org/v2/competitions/2021/teams`, 
         { 
             headers : {
@@ -88,7 +90,7 @@ class App extends Component {
           .catch(error => this.setState({ error, isLoading: false }));
 		}		
 
-		fetchMatches() {
+	fetchMatches() {
       fetch(`http://api.football-data.org/v2/competitions/2021/matches`, 
         { 
             headers : {
@@ -104,56 +106,17 @@ class App extends Component {
           .catch(error => this.setState({ error, isLoading: false }));
 		}
 
-		// refactor at some point to use below endpoint to get lineup of players, need to filter game out
-		// http://api.football-data.org/v2/teams/759/matches
-
-		// fetchSingleMatch(matchID) {
-    //   fetch(`http://staging-api.football-data.org/v2/matches/`+matchID, 
-    //     { 
-    //         headers : {
-    //             'X-Auth-Token': authToken
-    //         }
-    //     } )
-    //       .then(response => response.json())
-    //       .then(data =>
-    //         this.setState({
-    //           fullMatchData: data
-    //         })
-    //       )
-		// 			.catch(error => this.setState({ error, isLoading: false }));
-		// }
-
-		// create state: lastUsedTeamName in order to naviagte back to previously selected teams games
-
 		switchViewComponent(nameOfView) {
-			if (nameOfView === "table") {
 				this.setState({
-					table: "display",
-					teamSelected: null,
-					match: null
+					display: nameOfView
 				})
-			} else if (nameOfView === "teamSelected") {
-					this.setState({
-						table: null,
-						teamSelected: this.state.lastUsedTeamName,
-						match: null  
-					})
-			} else if (nameOfView === "match") {
-				this.setState({
-					table: null,
-					teamSelected: null,
-					match: "display"
-				})
-			}
-			else return
 		}
 
 		// does this get replaced by / combined with switchViewComponent?
 		getTeamNameFromTableRow(teamName) {
 			this.setState({
-				teamSelected: teamName,
-				lastUsedTeamName: teamName,
-				table: null
+				display: "teamSelected",
+				lastUsedTeamName: teamName
 			})
 		}
 
@@ -219,7 +182,7 @@ class App extends Component {
 				</h1>
 			}
 
-			else if (this.state.table) {
+			else if (this.state.display === "table") {
 				return(
 					<OpaqueBackground>
 							<Table width="750">
@@ -250,30 +213,28 @@ class App extends Component {
 					</OpaqueBackground>
 				)
 			}
-			else if (this.state.teamSelected) {
+			else if (this.state.display === "teamSelected") {
 					return(
 						<div> 
 							<TeamMatches
-								teamSelected={this.state.teamSelected}
+								teamSelected={this.state.lastUsedTeamName}
 								teamSeasonGames={this.state.teamSeasonGames}
 								switchViewComponent={this.switchViewComponent}
 								getMatchID={this.getMatchID}
 								useMatchIDToFilterGame={this.useMatchIDToFilterGame}
 								sendReturnedMatchToState={this.sendReturnedMatchToState}
 								singleMatch={this.state.singleMatch}
-								// fetchSingleMatch={this.fetchSingleMatch}
+								display={this.state.display}
 							/>	
 						</div>
 				)
 			}
-			else if (this.state.match) {
+			else if (this.state.display === "match") {
 				return(
 					<div>
 							<SingleMatch
 								singleMatch={this.state.singleMatch[0]}
-								// won't use teamSelected in this instance?
-								teamSelected={this.state.teamSelected}
-								match={this.state.match}
+								display={this.state.display}
 								switchViewComponent={this.switchViewComponent}
 							/>
 					</div>
@@ -295,3 +256,28 @@ export default App;
 
 const wrapper = document.getElementById("create-app");
 wrapper ? ReactDOM.render(<App />, wrapper) : false;
+
+// switchViewComponent(nameOfView) {
+// 	if (nameOfView === "table") {
+// 		this.setState({
+// 			// table: "display",
+// 			// teamSelected: null,
+// 			// match: null
+// 			display: nameOfView
+// 		})
+// 	} else if (nameOfView === "teamSelected") {
+// 			this.setState({
+// 				// table: null,
+// 				// teamSelected: this.state.lastUsedTeamName,
+// 				// match: null  
+// 				display: nameOfView
+// 			})
+// 	} else if (nameOfView === "match") {
+// 		this.setState({
+// 			table: null,
+// 			teamSelected: null,
+// 			match: "display"
+// 		})
+// 	}
+// 	else return
+// }

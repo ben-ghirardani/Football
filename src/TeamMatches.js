@@ -15,7 +15,7 @@ class TeamMatches extends Component {
                 <BackButton
                     teamSelected={this.props.teamSelected}
                     // won't use match in this instance?
-                    match={this.props.match}
+                    display={this.props.display}
                     switchViewComponent={this.props.switchViewComponent}
                 />
                 <div> 
@@ -28,7 +28,6 @@ class TeamMatches extends Component {
                                 awayTeam={item.awayTeam.name}
                                 matchDay={item.matchday}
                                 score={item.score}
-                                // fetchSingleMatch={this.props.fetchSingleMatch}
                                 switchViewComponent={this.props.switchViewComponent}
                                 getMatchID={this.props.getMatchID}
                                 useMatchIDToFilterGame={this.props.useMatchIDToFilterGame}

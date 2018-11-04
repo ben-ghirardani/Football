@@ -185,7 +185,8 @@ class App extends Component {
 			else if (this.state.display === "table") {
 				return(
 					<OpaqueBackground>
-							<Table width="750">
+							{/* set size of table dynamically, as % of containing div */}
+							<Table width="90%">
 								<tbody>
 									<TableHeader/>
 										{
@@ -215,7 +216,7 @@ class App extends Component {
 			}
 			else if (this.state.display === "teamSelected") {
 					return(
-						<div> 
+						<OpaqueBackground> 
 							<TeamMatches
 								teamSelected={this.state.lastUsedTeamName}
 								teamSeasonGames={this.state.teamSeasonGames}
@@ -226,7 +227,7 @@ class App extends Component {
 								singleMatch={this.state.singleMatch}
 								display={this.state.display}
 							/>	
-						</div>
+						</OpaqueBackground>
 				)
 			}
 			else if (this.state.display === "match") {
@@ -256,28 +257,3 @@ export default App;
 
 const wrapper = document.getElementById("create-app");
 wrapper ? ReactDOM.render(<App />, wrapper) : false;
-
-// switchViewComponent(nameOfView) {
-// 	if (nameOfView === "table") {
-// 		this.setState({
-// 			// table: "display",
-// 			// teamSelected: null,
-// 			// match: null
-// 			display: nameOfView
-// 		})
-// 	} else if (nameOfView === "teamSelected") {
-// 			this.setState({
-// 				// table: null,
-// 				// teamSelected: this.state.lastUsedTeamName,
-// 				// match: null  
-// 				display: nameOfView
-// 			})
-// 	} else if (nameOfView === "match") {
-// 		this.setState({
-// 			table: null,
-// 			teamSelected: null,
-// 			match: "display"
-// 		})
-// 	}
-// 	else return
-// }

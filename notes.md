@@ -1,14 +1,17 @@
 *** when the page first loads it can take a liitle time for all 3 API calls to be made. Any actions before then cause an error. Improve error handling to deal with this. *** 
 
-
-
-Add an onClick event to the Tr in <Table_Entry/> that takes the name of team that has been clicked on and adds it to state.
-
-Use this name to render <Matches/> using this.state.teamSelected as the team name to filter by. 
-
-To navigate back to standings screen, return this.state.teamSelected to null? Render stadnigns screen based on this.state.teamSelected being null.
+<BackButton/> position needs to be fixed on the page
 
 
 
 
-To Do - fix getTeamMatches() from App.js as it is currently pulling in all games, not filtering by team name.
+
+Quote from Stack Overflow -
+
+The must-know here is the stack order of elements are, by default, defined by the reverse of their order in the HTML structure. Consider the following example:
+
+<body>
+  <div>Bottom</div>
+  <div>Top</div>
+</body> 
+In this example, if the two <div> elements were positioned in the same place on the page, the <div>Top</div> element would cover the <div>Bottom</div> element. Since <div>Top</div> comes after <div>Bottom</div> in the HTML structure it has a higher stacking order.

@@ -14,23 +14,29 @@ class Match extends Component {
         let ID = this.props.id
         this.props.getMatchID(ID)
         let match = this.props.useMatchIDToFilterGame(ID)
-        // this.props.fetchSingleMatch(ID)
         this.props.sendReturnedMatchToState(match)
         this.props.switchViewComponent("match")
     }
 
     render() {
         return(
-            <div
+            <Div
                 onClick={this.onClickMatch}
             >
                 {this.props.homeTeam}
                 {this.props.awayTeam}
                 {this.props.matchDay}
-            </div>
+            </Div>
         )
     }
 
 }
 
 export default Match;
+
+const Div = styled.div`
+    color: black;
+    &:hover{
+        color: blue
+    }
+`

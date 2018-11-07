@@ -40,6 +40,8 @@ class TableEntry extends Component {
 
 export default TableEntry;
 
+// break these out into Styled Components folder
+
 const Tr = styled.tr`
     border-top: ${props => {
         if(props.position === 18) {

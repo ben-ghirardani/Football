@@ -8,6 +8,8 @@ import SingleMatch from './SingleMatch';
 import BackgroundDiv from './StyledComponents/BackgroundDiv';
 import OpaqueBackground from './StyledComponents/OpaqueBackground';
 import Table from './StyledComponents/Table';
+// Header is a styled component and needs to be with its kind
+import Header from './Header';
 
 class App extends Component {
 
@@ -186,7 +188,7 @@ class App extends Component {
 				return(
 					<OpaqueBackground>
 							{/* set size of table dynamically, as % of containing div */}
-							<Table width="90%">
+							<Table>
 								<tbody>
 									<TableHeader/>
 										{
@@ -232,13 +234,13 @@ class App extends Component {
 			}
 			else if (this.state.display === "match") {
 				return(
-					<div>
+					<OpaqueBackground>
 							<SingleMatch
 								singleMatch={this.state.singleMatch[0]}
 								display={this.state.display}
 								switchViewComponent={this.switchViewComponent}
 							/>
-					</div>
+					</OpaqueBackground>
 				)
 			}
 		}
@@ -247,6 +249,7 @@ class App extends Component {
         return (
 					<BackgroundDiv>
 						{this.renderComponentBasedOnState()}
+						{/* <Header/> */}
 					</BackgroundDiv>
         )
     }

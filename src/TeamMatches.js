@@ -1,16 +1,13 @@
 import React, {Component} from 'react';
-import styled, { css } from 'styled-components';
 import Match from './Match';
 import BackButton from './BackButton';
+import styled, { css } from 'styled-components';
 
 class TeamMatches extends Component {
 
-    // background stretches as this component extends off the bottom of the scren. 
-    // find a way to have component scroll.
-
     render() {
         return(
-            <div>
+            <Div>
                 <h1>{this.props.teamSelected}</h1>
                 <BackButton
                     teamSelected={this.props.teamSelected}
@@ -37,10 +34,18 @@ class TeamMatches extends Component {
                         )
                     }                    
                 </div>
-            </div>
+            </Div>
         )
     }
 
 }
 
 export default TeamMatches;
+
+const Div = styled.div`
+    // position was causing the top of this component to get cut off at the top of the screen.
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+`

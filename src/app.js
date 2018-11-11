@@ -10,6 +10,7 @@ import OpaqueBackground from './StyledComponents/OpaqueBackground';
 import Table from './StyledComponents/Table';
 // Header is a styled component and needs to be with its kind
 import Header from './Header';
+import Logo from './StyledComponents/Logo';
 
 class App extends Component {
 
@@ -187,6 +188,7 @@ class App extends Component {
 			else if (this.state.display === "table") {
 				return(
 					<OpaqueBackground>
+						<Logo/>
 							{/* set size of table dynamically, as % of containing div */}
 							<Table>
 								<tbody>

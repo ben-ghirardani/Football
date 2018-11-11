@@ -18,14 +18,18 @@ class Match extends Component {
         this.props.switchViewComponent("match")
     }
 
+
+
+    // make the display a table? Table header fixed position so it stays at the top?
+
     render() {
         return(
             <Div
                 onClick={this.onClickMatch}
             >
-                {this.props.homeTeam}
-                {this.props.awayTeam}
-                {this.props.matchDay}
+                {this.props.game.matchday}
+                {this.props.game.homeTeam.name}
+                {this.props.game.awayTeam.name}
             </Div>
         )
     }
@@ -39,4 +43,5 @@ const Div = styled.div`
     &:hover{
         color: blue
     }
+    border: 1px black solid;
 `

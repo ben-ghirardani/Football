@@ -17,14 +17,16 @@ class TeamMatches extends Component {
                 />
                 <div> 
                     {
-                        this.props.teamSeasonGames.map((item, i) =>
+                        this.props.teamSeasonGames.map((game, i) =>
                             <Match
-                                id={item.id}
+                                id={game.id}
                                 key={i}
-                                homeTeam={item.homeTeam.name}
-                                awayTeam={item.awayTeam.name}
-                                matchDay={item.matchday}
-                                score={item.score}
+                                game={game}
+                                homeTeam={game.homeTeam.name}
+                                awayTeam={game.awayTeam.name}
+                                matchDay={game.matchday}
+                                score={game.score}
+
                                 switchViewComponent={this.props.switchViewComponent}
                                 getMatchID={this.props.getMatchID}
                                 useMatchIDToFilterGame={this.props.useMatchIDToFilterGame}

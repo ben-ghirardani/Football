@@ -10,3 +10,6 @@ const Header = styled.div`
 `
 
 export default Header;
+
+
+// get rid of header?

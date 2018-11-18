@@ -46,8 +46,7 @@ export default TeamMatches;
 
 const Div = styled.div`
     // position was causing the top of this component to get cut off at the top of the screen.
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    width: 50%;
+    margin: 0 auto;
 `

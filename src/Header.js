@@ -12,4 +12,4 @@ const Header = styled.div`
 export default Header;
 
 
-// get rid of header?
+// words get cut off when resizing, need to update

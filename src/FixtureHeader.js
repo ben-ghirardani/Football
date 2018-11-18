@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 
-class TableHeader extends Component {
+class FixtureHeader extends Component {
+
+    // edit for the fixtures
+
+
+    // OR ... just make this out of a collection of divs, etc?
 
     render() {
         return(
             <tr>
-                <th>Pos.</th>
+                <th></th>
                 <th>Team</th>
                 <th>MP</th>
                 <th>W</th>
@@ -21,4 +26,4 @@ class TableHeader extends Component {
  
 }
 
-export default TableHeader;
+export default FixtureHeader;

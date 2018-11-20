@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import FootballBackground2 from '../img/FootballBackground2.png';
 
-const Header = styled.div`
+const HeaderBackground = styled.div`
     background-image: url(${FootballBackground2});
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,4 +11,4 @@ const Header = styled.div`
     height: 15%;
 `
 
-export default Header; 
+export default HeaderBackground;

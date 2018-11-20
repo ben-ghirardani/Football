@@ -8,7 +8,9 @@ import SingleMatch from './SingleMatch';
 import BackgroundDiv from './StyledComponents/BackgroundDiv';
 import OpaqueBackground from './StyledComponents/OpaqueBackground';
 import Table from './StyledComponents/Table';
-import Header from './StyledComponents/Header';
+import AppHeader from './AppHeader';
+import OpaqueHeader from './StyledComponents/OpaqueHeader';
+import HeaderBackground from './StyledComponents/HeaderBackground';
 import Logo from './StyledComponents/Logo';
 
 class App extends Component {
@@ -210,10 +212,7 @@ class App extends Component {
 												/>)
 										}
 								</tbody>
-							</Table>	
-						{/* <Header>
-							<Logo/>
-						</Header>																					 */}
+							</Table>
 					</OpaqueBackground>
 				)
 			}
@@ -257,9 +256,10 @@ class App extends Component {
         return (
 					<BackgroundDiv>
 							{this.renderComponentBasedOnState()}
-						<Header>
+						{/* <Header>
 							<Logo/>
-						</Header>
+						</Header> */}
+						<AppHeader/>
 					</BackgroundDiv>
         )
     }

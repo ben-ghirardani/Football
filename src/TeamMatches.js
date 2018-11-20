@@ -49,4 +49,5 @@ const Div = styled.div`
     position: relative;
     width: 50%;
     margin: 0 auto;
+    top: 20%;
 `

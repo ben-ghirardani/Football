@@ -8,8 +8,7 @@ import SingleMatch from './SingleMatch';
 import BackgroundDiv from './StyledComponents/BackgroundDiv';
 import OpaqueBackground from './StyledComponents/OpaqueBackground';
 import Table from './StyledComponents/Table';
-// Header is a styled component and needs to be with its kind
-import Header from './Header';
+import Header from './StyledComponents/Header';
 import Logo from './StyledComponents/Logo';
 
 class App extends Component {
@@ -26,8 +25,6 @@ class App extends Component {
 			singleMatch: null,
 			teamSelectedGames: null,
 			teamSeasonGames: null,
-			
-
 
 			lastUsedTeamName: null,
 
@@ -188,7 +185,6 @@ class App extends Component {
 			else if (this.state.display === "table") {
 				return(
 					<OpaqueBackground>
-						<Logo/>
 							{/* set size of table dynamically, as % of containing div */}
 							<Table>
 								<tbody>
@@ -214,14 +210,16 @@ class App extends Component {
 												/>)
 										}
 								</tbody>
-							</Table>																						
+							</Table>	
+						{/* <Header>
+							<Logo/>
+						</Header>																					 */}
 					</OpaqueBackground>
 				)
 			}
 			else if (this.state.display === "teamSelected") {
 					return(
 						<OpaqueBackground> 
-							<Logo/>
 								<TeamMatches
 									teamSelected={this.state.lastUsedTeamName}
 									teamSeasonGames={this.state.teamSeasonGames}
@@ -232,18 +230,24 @@ class App extends Component {
 									singleMatch={this.state.singleMatch}
 									display={this.state.display}
 								/>	
+							{/* <Header>
+								<Logo/>
+							</Header> */}
 						</OpaqueBackground>
 				)
 			}
 			else if (this.state.display === "match") {
 				return(
 					<OpaqueBackground>
-						<Logo/>
+						{/* <Logo/> */}
 							<SingleMatch
 								singleMatch={this.state.singleMatch[0]}
 								display={this.state.display}
 								switchViewComponent={this.switchViewComponent}
 							/>
+						{/* <Header>
+							<Logo/>
+						</Header> */}
 					</OpaqueBackground>
 				)
 			}
@@ -252,8 +256,10 @@ class App extends Component {
     render() {
         return (
 					<BackgroundDiv>
-						{this.renderComponentBasedOnState()}
-						{/* <Header/> */}
+							{this.renderComponentBasedOnState()}
+						<Header>
+							<Logo/>
+						</Header>
 					</BackgroundDiv>
         )
     }

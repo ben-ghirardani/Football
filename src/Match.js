@@ -28,8 +28,11 @@ class Match extends Component {
                 onClick={this.onClickMatch}
             >
                 {this.props.game.matchday}
-                {this.props.game.homeTeam.name}
-                {this.props.game.awayTeam.name}
+                {this.props.game.homeTeam.name+" "}
+                {this.props.game.score.fullTime.homeTeam}
+                {" - "}
+                {this.props.game.score.fullTime.awayTeam}
+                {" "+this.props.game.awayTeam.name}
             </Div>
         )
     }
@@ -43,5 +46,5 @@ const Div = styled.div`
     &:hover{
         color: blue
     }
-    border: 1px black solid;
+    padding: 5px;
 `

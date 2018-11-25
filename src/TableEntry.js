@@ -45,7 +45,7 @@ export default TableEntry;
 // border-radius doesn't apply on Tr
 const Tr = styled.tr`
     &:hover {
-        background-color: rgba(50,205,50,0.5);
+        background-color: rgba(50,205,50,0.25);
     }
     border-top: ${props => {
         if(props.position === 18) {

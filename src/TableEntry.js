@@ -22,7 +22,7 @@ class TableEntry extends Component {
             <Tr {...this.props}
                 onClick={this.onClickTableRow}
             >
-                <Td>{this.props.position}</Td>
+                <TdLeft>{this.props.position}</TdLeft>
                 <Td>{this.props.team}</Td>
                 <Td>{this.props.played}</Td>
                 <Td>{this.props.won}</Td>
@@ -31,7 +31,7 @@ class TableEntry extends Component {
                 <Td>{this.props.gf}</Td>
                 <Td>{this.props.ga}</Td>
                 <Td>{this.props.gd}</Td>
-                <Td>{this.props.points}</Td>
+                <TdRight>{this.props.points}</TdRight>
             </Tr>
         )
     }
@@ -42,7 +42,11 @@ export default TableEntry;
 
 // break these out into Styled Components folder
 
+// border-radius doesn't apply on Tr
 const Tr = styled.tr`
+    &:hover {
+        background-color: rgba(50,205,50,0.5);
+    }
     border-top: ${props => {
         if(props.position === 18) {
             return '1px red dotted'
@@ -50,11 +54,18 @@ const Tr = styled.tr`
     }}
 `
 
+// need a sperate Td for the two ends of the row, don't want rounder corners on every Td
 const Td = styled.td`
     color: black;
-    // color: 
+`
+const TdLeft = styled.td`
+    color: black;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+`
 
-    &:hover{
-        color: blue
-    }
+const TdRight = styled.td`
+    color: black;
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
 `

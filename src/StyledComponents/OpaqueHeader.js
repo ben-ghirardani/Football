@@ -2,8 +2,6 @@ import styled, { css } from 'styled-components';
 
 const OpaqueHeader = styled.div`
     background-color: rgba(255,255,255,0.65);
-    // height: 100vh;
-    // top: 15vh;
     height: 15vh;
     width: 75%;
     float: none;

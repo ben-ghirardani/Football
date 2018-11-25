@@ -4,6 +4,7 @@ import FootballBackground2 from '../img/FootballBackground2.png';
 const BackgroundDiv = styled.div`
     background-image: url(${FootballBackground2});
     background-repeat: no-repeat;
+    background-position: center center;
     background-size: cover;
     min-height: 100%;
     min-width: 100%;

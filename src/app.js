@@ -10,7 +10,6 @@ import OpaqueBackground from './StyledComponents/OpaqueBackground';
 import Table from './StyledComponents/Table';
 import AppHeader from './AppHeader';
 import OpaqueHeader from './StyledComponents/OpaqueHeader';
-import HeaderBackground from './StyledComponents/HeaderBackground';
 import Logo from './StyledComponents/Logo';
 
 class App extends Component {
@@ -187,32 +186,31 @@ class App extends Component {
 			else if (this.state.display === "table") {
 				return(
 					<OpaqueBackground>
-							{/* set size of table dynamically, as % of containing div */}
-							<Table>
-								<tbody>
-									<TableHeader/>
-										{
-											this.state.standings.standings[0].table.map((item, i) => 
-												<TableEntry
-													getTeamNameFromTableRow={this.getTeamNameFromTableRow}
-													combineHomeAndAway={this.combineHomeAndAway}
-													matches={this.state.matches}
-													setTeamSeasonGames={this.setTeamSeasonGames}
-													key={i}
-													position={item.position}
-													team={item.team.name}
-													played={item.playedGames}
-													won={item.won}
-													drawn={item.draw}
-													lost={item.lost}
-													gf={item.goalsFor}
-													ga={item.goalsAgainst}
-													gd={item.goalDifference}
-													points={item.points}
-												/>)
-										}
-								</tbody>
-							</Table>
+						<Table>
+							<tbody>
+								<TableHeader/>
+									{
+										this.state.standings.standings[0].table.map((item, i) => 
+											<TableEntry
+												getTeamNameFromTableRow={this.getTeamNameFromTableRow}
+												combineHomeAndAway={this.combineHomeAndAway}
+												matches={this.state.matches}
+												setTeamSeasonGames={this.setTeamSeasonGames}
+												key={i}
+												position={item.position}
+												team={item.team.name}
+												played={item.playedGames}
+												won={item.won}
+												drawn={item.draw}
+												lost={item.lost}
+												gf={item.goalsFor}
+												ga={item.goalsAgainst}
+												gd={item.goalDifference}
+												points={item.points}
+											/>)
+									}
+							</tbody>
+						</Table>
 					</OpaqueBackground>
 				)
 			}
@@ -229,24 +227,17 @@ class App extends Component {
 									singleMatch={this.state.singleMatch}
 									display={this.state.display}
 								/>	
-							{/* <Header>
-								<Logo/>
-							</Header> */}
 						</OpaqueBackground>
 				)
 			}
 			else if (this.state.display === "match") {
 				return(
 					<OpaqueBackground>
-						{/* <Logo/> */}
-							<SingleMatch
-								singleMatch={this.state.singleMatch[0]}
-								display={this.state.display}
-								switchViewComponent={this.switchViewComponent}
-							/>
-						{/* <Header>
-							<Logo/>
-						</Header> */}
+						<SingleMatch
+							singleMatch={this.state.singleMatch[0]}
+							display={this.state.display}
+							switchViewComponent={this.switchViewComponent}
+						/>
 					</OpaqueBackground>
 				)
 			}
@@ -255,11 +246,10 @@ class App extends Component {
     render() {
         return (
 					<BackgroundDiv>
-							{this.renderComponentBasedOnState()}
-						{/* <Header>
+						<OpaqueHeader>
 							<Logo/>
-						</Header> */}
-						<AppHeader/>
+						</OpaqueHeader>
+							{this.renderComponentBasedOnState()}
 					</BackgroundDiv>
         )
     }

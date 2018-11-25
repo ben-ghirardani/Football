@@ -7,14 +7,16 @@ class AppHeader extends Component {
 
     render() {
         return(
-            <HeaderBackGround>
+            // <HeaderBackGround>
                 <OpaqueHeader>
                     <Logo/>
                 </OpaqueHeader>
-            </HeaderBackGround>
+            // </HeaderBackGround>
         )
     }
 
 }
 
 export default AppHeader;
+
+// no longer using this, leave it for now in case it goes back in.

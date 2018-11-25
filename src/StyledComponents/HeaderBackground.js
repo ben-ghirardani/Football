@@ -5,6 +5,7 @@ const HeaderBackground = styled.div`
     background-image: url(${FootballBackground2});
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
     position: fixed;
     top: 0;
     width: inherit;
@@ -12,3 +13,5 @@ const HeaderBackground = styled.div`
 `
 
 export default HeaderBackground;
+
+// no longer using this. Leave it for now in case it ends up going back in

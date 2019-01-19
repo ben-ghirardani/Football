@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled, { css } from 'styled-components';
 
 import Arsenal from './img/Crest/Arsenal.png';
 import Bournemouth from './img/Crest/Bournemouth.png';
@@ -75,10 +76,27 @@ export default class TeamMatchesInfo extends Component {
 
     render () {
         return(
-            <img src={
-                this.selectIMG(this.props.team)
-            } />
+            <Div>
+                <Img src={
+                    this.selectIMG(this.props.team)
+                } />
+            </Div>
         )
     }
 
 } 
+
+const Div = styled.div`
+    width: 38%;
+    margin-left: 0;
+    float: left;
+    position: fixed;
+`
+
+const Img = styled.img`
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    background-size: contain;
+`

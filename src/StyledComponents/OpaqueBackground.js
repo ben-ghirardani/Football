@@ -14,3 +14,5 @@ const OpaqueBackground = styled.div`
     border-right: 1px solid black;
 `
 export default OpaqueBackground;
+
+// change OpaqueBackground? It's just a container now. No overflow scroll. That would be on the child.

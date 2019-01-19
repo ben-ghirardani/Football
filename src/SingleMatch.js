@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import BackButton from './BackButton';
 
-class SingleMatch extends Component {
+export default class SingleMatch extends Component {
 
     constructor(props) {
         super(props);
@@ -27,5 +27,3 @@ class SingleMatch extends Component {
     }
 
 }
-
-export default SingleMatch;

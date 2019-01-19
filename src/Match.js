@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 // do I need idDate?
 import { isDate } from 'util';
 
-class Match extends Component {
+export default class Match extends Component {
 
     constructor(props) {
         super(props);
@@ -38,8 +38,6 @@ class Match extends Component {
     }
 
 }
-
-export default Match;
 
 const Div = styled.div`
     color: black;

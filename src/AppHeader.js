@@ -3,7 +3,7 @@ import HeaderBackGround from './StyledComponents/HeaderBackground';
 import Logo from './StyledComponents/Logo';
 import OpaqueHeader from './StyledComponents/OpaqueHeader';
 
-class AppHeader extends Component {
+export default class AppHeader extends Component {
 
     render() {
         return(
@@ -16,7 +16,5 @@ class AppHeader extends Component {
     }
 
 }
-
-export default AppHeader;
 
 // no longer using this, leave it for now in case it goes back in.

@@ -2,7 +2,9 @@
 
 <BackButton/> position needs to be fixed on the page
 
-
+<!-- 
+  Create some dummy data for the single game page as API os paid at that point.
+ -->
 
 Quote from Stack Overflow -
 

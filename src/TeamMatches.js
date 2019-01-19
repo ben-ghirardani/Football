@@ -3,7 +3,7 @@ import Match from './Match';
 import BackButton from './BackButton';
 import styled, { css } from 'styled-components';
 
-class TeamMatches extends Component {
+export default class TeamMatches extends Component {
 
     render() {
         return(
@@ -42,11 +42,10 @@ class TeamMatches extends Component {
 
 }
 
-export default TeamMatches;
-
 const Div = styled.div`
     position: relative;
     width: 50%;
-    margin: 0 auto;
-    top: 10%;
+    margin-left: auto;
+    margin-right: 0;
+    top: 5%;
 `

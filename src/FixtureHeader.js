@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class FixtureHeader extends Component {
+export default class FixtureHeader extends Component {
 
     // edit for the fixtures
 
@@ -25,5 +25,3 @@ class FixtureHeader extends Component {
     }
  
 }
-
-export default FixtureHeader;

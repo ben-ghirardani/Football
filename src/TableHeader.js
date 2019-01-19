@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class TableHeader extends Component {
+export default class TableHeader extends Component {
 
     render() {
         return(
@@ -20,5 +20,3 @@ class TableHeader extends Component {
     }
  
 }
-
-export default TableHeader;

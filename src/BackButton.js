@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 
-class BackButton extends Component {
+export default class BackButton extends Component {
 
     constructor(props) {
         super(props);
@@ -26,5 +26,3 @@ class BackButton extends Component {
     }
 
 }
-
-export default BackButton;

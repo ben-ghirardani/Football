@@ -11,8 +11,9 @@ import Table from './StyledComponents/Table';
 import AppHeader from './AppHeader';
 import OpaqueHeader from './StyledComponents/OpaqueHeader';
 import Logo from './StyledComponents/Logo';
+import TeamMatchesInfo from './TeamMatchesInfo';
 
-class App extends Component {
+export default class App extends Component {
 
     constructor(props) {
         super(props);
@@ -217,6 +218,9 @@ class App extends Component {
 			else if (this.state.display === "teamSelected") {
 					return(
 						<OpaqueBackground> 
+								<TeamMatchesInfo
+									team={this.state.lastUsedTeamName}
+								/>
 								<TeamMatches
 									teamSelected={this.state.lastUsedTeamName}
 									teamSeasonGames={this.state.teamSeasonGames}
@@ -254,9 +258,7 @@ class App extends Component {
         )
     }
 
-}	
-
-export default App;
+}
 
 const wrapper = document.getElementById("create-app");
 wrapper ? ReactDOM.render(<App />, wrapper) : false;

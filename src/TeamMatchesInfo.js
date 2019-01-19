@@ -76,7 +76,7 @@ export default class TeamMatchesInfo extends Component {
     render () {
         return(
             <img src={
-                selectIMG(this.props.team)
+                this.selectIMG(this.props.team)
             } />
         )
     }

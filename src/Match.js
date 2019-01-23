@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
-// do I need idDate?
+// do I need isDate?
 import { isDate } from 'util';
+import convertDate from './ConvertDate'
 
 export default class Match extends Component {
 
@@ -27,7 +28,7 @@ export default class Match extends Component {
             <Div
                 onClick={this.onClickMatch}
             >
-                {this.props.game.matchday}
+                {convertDate(this.props.game.utcDate)}
                 {this.props.game.homeTeam.name+" "}
                 {this.props.game.score.fullTime.homeTeam}
                 {" - "}
@@ -44,5 +45,7 @@ const Div = styled.div`
     &:hover{
         color: blue
     }
-    padding: 5px;
-`
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 25px;
+    `

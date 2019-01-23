@@ -4,8 +4,7 @@ export default class FixtureHeader extends Component {
 
     // edit for the fixtures
 
-
-    // OR ... just make this out of a collection of divs, etc?
+    // *** change to a functional component ***
 
     render() {
         return(

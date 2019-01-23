@@ -28,6 +28,7 @@ export default class TeamMatchesInfo extends Component {
     constructor(props) {
         super(props);
         this.selectIMG = this.selectIMG.bind(this);
+        this.getTeamDetails = this.getTeamDetails.bind(this);
     }
 
     selectIMG(team) {
@@ -74,23 +75,52 @@ export default class TeamMatchesInfo extends Component {
         } else ErrorIcon
     }
 
+    getTeamDetails(teams) {
+        let teamInfo = {
+            venue: null,
+            address: null,
+            founded: null,
+            website: null
+        }
+        for (let i = 0; i < teams.length; i++) {
+            const teamName = this.props.team;
+            const team = teams[i];   
+            if (teamName === team.name) {
+                teamInfo.venue = team.venue;
+                teamInfo.address = team.address;
+                teamInfo.founded = team.founded;
+                teamInfo.website = team.website;
+            }
+        }
+        return teamInfo;
+    }
+
     render () {
         return(
             <Div>
                 <Img src={
                     this.selectIMG(this.props.team)
                 } />
+                <H1>{this.props.team}</H1>
+                <P> {this.getTeamDetails(this.props.allTeams).venue} </P>
+                {/* <P> {this.getTeamDetails(this.props.allTeams).address} </P> */}
+                {/* <P> Est. {this.getTeamDetails(this.props.allTeams).founded} </P> */}
+                <P> {this.getTeamDetails(this.props.allTeams).website} </P>
             </Div>
         )
     }
 
 } 
 
+// split the styled components out into their own files, make them as reusable as pos.
+// any styling specific to this component can go here.
+
 const Div = styled.div`
     width: 38%;
     margin-left: 0;
     float: left;
     position: fixed;
+    padding-top: 8%;
 `
 
 const Img = styled.img`
@@ -99,4 +129,12 @@ const Img = styled.img`
     margin-right: auto;
     margin-top: 5%;
     background-size: contain;
+`
+
+const H1 = styled.h1`
+    text-align: center;
+`
+
+const P = styled.p`
+    text-align: center;
 `

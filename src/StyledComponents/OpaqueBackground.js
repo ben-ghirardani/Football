@@ -9,9 +9,9 @@ const OpaqueBackground = styled.div`
     margin: 0 auto;
     overflow: scroll;
     position: relative;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    border-top: 1px solid Black;
+    border-left: 1px solid Black;
+    border-right: 1px solid Black;
 `
 export default OpaqueBackground;
 

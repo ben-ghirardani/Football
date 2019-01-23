@@ -8,7 +8,6 @@ export default class TeamMatches extends Component {
     render() {
         return(
             <Div>
-                <h1>{this.props.teamSelected}</h1>
                 <BackButton
                     teamSelected={this.props.teamSelected}
                     // won't use match in this instance?
@@ -47,5 +46,6 @@ const Div = styled.div`
     width: 50%;
     margin-left: auto;
     margin-right: 0;
-    top: 5%;
+    border-left: 1px solid Black;
+    padding-top: 2%;
 `

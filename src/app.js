@@ -220,6 +220,7 @@ export default class App extends Component {
 						<OpaqueBackground> 
 								<TeamMatchesInfo
 									team={this.state.lastUsedTeamName}
+									allTeams={this.state.teams.teams}
 								/>
 								<TeamMatches
 									teamSelected={this.state.lastUsedTeamName}

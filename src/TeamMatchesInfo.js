@@ -102,9 +102,6 @@ export default class TeamMatchesInfo extends Component {
                     this.selectIMG(this.props.team)
                 } />
                 <H1>{this.props.team}</H1>
-                <P> {this.getTeamDetails(this.props.allTeams).venue} </P>
-                {/* <P> {this.getTeamDetails(this.props.allTeams).address} </P> */}
-                {/* <P> Est. {this.getTeamDetails(this.props.allTeams).founded} </P> */}
                 <P> {this.getTeamDetails(this.props.allTeams).website} </P>
             </Div>
         )

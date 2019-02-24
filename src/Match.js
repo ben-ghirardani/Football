@@ -19,16 +19,13 @@ export default class Match extends Component {
         this.props.switchViewComponent("match")
     }
 
-
-
-    // make the display a table? Table header fixed position so it stays at the top?
-
     render() {
         return(
             <Div
                 onClick={this.onClickMatch}
             >
                 {convertDate(this.props.game.utcDate)}
+                <br></br>
                 {this.props.game.homeTeam.name+" "}
                 {this.props.game.score.fullTime.homeTeam}
                 {" - "}
@@ -47,5 +44,5 @@ const Div = styled.div`
     }
     padding-top: 8px;
     padding-bottom: 8px;
-    padding-left: 25px;
+    padding-left: 45px;
     `

@@ -2,6 +2,9 @@ import styled, { css } from 'styled-components';
 import FootballBackground2 from '../img/FootballBackground2.png';
 
 const BackgroundDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-image: url(${FootballBackground2});
     background-repeat: no-repeat;
     background-position: center center;

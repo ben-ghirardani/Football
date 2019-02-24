@@ -8,7 +8,6 @@ import SingleMatch from './SingleMatch';
 import BackgroundDiv from './StyledComponents/BackgroundDiv';
 import OpaqueBackground from './StyledComponents/OpaqueBackground';
 import Table from './StyledComponents/Table';
-import AppHeader from './AppHeader';
 import OpaqueHeader from './StyledComponents/OpaqueHeader';
 import Logo from './StyledComponents/Logo';
 import TeamMatchesInfo from './TeamMatchesInfo';

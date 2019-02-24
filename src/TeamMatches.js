@@ -46,6 +46,5 @@ const Div = styled.div`
     width: 50%;
     margin-left: auto;
     margin-right: 0;
-    border-left: 1px solid Black;
     padding-top: 2%;
 `

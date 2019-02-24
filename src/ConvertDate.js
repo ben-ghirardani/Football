@@ -1,5 +1,7 @@
 const convertDate = (utcDate) => { 
 
+    // add error handling for unexpected values, eg. day 32, month 13, etc.
+
     let day = utcDate.substring(8,10);
     let monthNum = utcDate.substring(5,7);
     let year = utcDate.substring(0,4);

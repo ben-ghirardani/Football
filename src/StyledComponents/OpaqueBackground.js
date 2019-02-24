@@ -16,3 +16,8 @@ const OpaqueBackground = styled.div`
 export default OpaqueBackground;
 
 // change OpaqueBackground? It's just a container now. No overflow scroll. That would be on the child.
+
+// change to flexbox?
+
+// flex direction- column
+// justify content - centre

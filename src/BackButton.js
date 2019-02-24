@@ -9,6 +9,7 @@ export default class BackButton extends Component {
     }
 
     onClick() {
+        console.log('clickety click')
         if(this.props.display === "teamSelected") {
             this.props.switchViewComponent("table")
         } else if (this.props.display === "match") {
@@ -26,5 +27,3 @@ export default class BackButton extends Component {
     }
 
 }
-
-// do styling!

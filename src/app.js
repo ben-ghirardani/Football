@@ -11,6 +11,7 @@ import Table from './StyledComponents/Table';
 import OpaqueHeader from './StyledComponents/OpaqueHeader';
 import Logo from './StyledComponents/Logo';
 import TeamMatchesInfo from './TeamMatchesInfo';
+import BackButton from './BackButton';
 
 export default class App extends Component {
 
@@ -217,19 +218,22 @@ export default class App extends Component {
 			else if (this.state.display === "teamSelected") {
 					return(
 						<OpaqueBackground> 
+							<BackButton
+								switchViewComponent={this.switchViewComponent}
+								display={this.state.display}
+							/>
 								<TeamMatchesInfo
 									team={this.state.lastUsedTeamName}
 									allTeams={this.state.teams.teams}
 								/>
 								<TeamMatches
+									switchViewComponent={this.switchViewComponent}
 									teamSelected={this.state.lastUsedTeamName}
 									teamSeasonGames={this.state.teamSeasonGames}
-									switchViewComponent={this.switchViewComponent}
 									getMatchID={this.getMatchID}
 									useMatchIDToFilterGame={this.useMatchIDToFilterGame}
 									sendReturnedMatchToState={this.sendReturnedMatchToState}
 									singleMatch={this.state.singleMatch}
-									display={this.state.display}
 								/>	
 						</OpaqueBackground>
 				)
@@ -237,10 +241,12 @@ export default class App extends Component {
 			else if (this.state.display === "match") {
 				return(
 					<OpaqueBackground>
+						<BackButton
+							switchViewComponent={this.switchViewComponent}
+							display={this.state.display}
+						/>
 						<SingleMatch
 							singleMatch={this.state.singleMatch[0]}
-							display={this.state.display}
-							switchViewComponent={this.switchViewComponent}
 						/>
 					</OpaqueBackground>
 				)

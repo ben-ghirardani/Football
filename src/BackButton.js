@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled, { css } from 'styled-components';
+import Button from './StyledComponents/Button';
 
 export default class BackButton extends Component {
 
@@ -19,10 +19,12 @@ export default class BackButton extends Component {
 
     render() {
         return(
-            <button onClick={this.onClick}>
+            <Button onClick={this.onClick}>
                 Back
-            </button>
+            </Button>
         )
     }
 
 }
+
+// do styling!

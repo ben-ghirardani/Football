@@ -11,10 +11,10 @@ export default class SingleMatch extends Component {
     render() {
         return(
             <React.Fragment>
-                <BackButton
+                {/* <BackButton
                         switchViewComponent={this.props.switchViewComponent}
                         display={this.props.display}
-                    />
+                    /> */}
                 <Div>
                     {this.props.singleMatch.homeTeam.name}{" "}
                     {"("}{this.props.singleMatch.score.halfTime.homeTeam}{") "}

@@ -49,14 +49,13 @@ export default class App extends Component {
 			this.sendReturnedMatchToState = this.sendReturnedMatchToState.bind(this);
     }
 
-	// deprecated? use componentDidMount?
-    componentWillMount() {
+    componentDidMount() {
 		this.fetchStandings();
 		this.fetchTeams();
 		this.fetchMatches();
 	}
 
-		// combine all fetch requests into a Promise? Render loading component until Promise is met, then render
+		// combine all fetch requests into a Promise? Render loading component until Promise is met
 
     fetchStandings() {
       fetch(`http://api.football-data.org/v2/competitions/2021/standings`, 

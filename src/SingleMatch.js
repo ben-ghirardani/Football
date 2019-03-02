@@ -11,10 +11,6 @@ export default class SingleMatch extends Component {
     render() {
         return(
             <React.Fragment>
-                {/* <BackButton
-                        switchViewComponent={this.props.switchViewComponent}
-                        display={this.props.display}
-                    /> */}
                 <Div>
                     {this.props.singleMatch.homeTeam.name}{" "}
                     {"("}{this.props.singleMatch.score.halfTime.homeTeam}{") "}
@@ -35,9 +31,6 @@ const Div = styled.div`
     &:hover{
         color: blue
     }
-    // padding-top: 2px;
-    // padding-bottom: 8px;
-    // padding-left: 45px;
     width: 600px;
     height: 100px;
     position: absolute;
@@ -45,7 +38,6 @@ const Div = styled.div`
     top: 35%; 
     margin-left: -300px;
     margin-top: -50px;
-    border: 1px solid black;
     text-align: center;
     font-size: 2em;
     `

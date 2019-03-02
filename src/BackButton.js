@@ -3,8 +3,8 @@ import Button from './StyledComponents/Button';
 
 export default class BackButton extends Component {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.onClick = this.onClick.bind(this);
     }
 

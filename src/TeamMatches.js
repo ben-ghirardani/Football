@@ -8,12 +8,6 @@ export default class TeamMatches extends Component {
     render() {
         return(
             <Div>
-                {/* <BackButton
-                    teamSelected={this.props.teamSelected}
-                    // won't use match in this instance?
-                    display={this.props.display}
-                    switchViewComponent={this.props.switchViewComponent}
-                /> */}
                 <div> 
                     {
                         this.props.teamSeasonGames.map((game, i) =>

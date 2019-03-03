@@ -1,15 +1,47 @@
 import React, { Component } from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 import "isomorphic-fetch"
 
 import App from './App'
 
-describe('App file', () => {
+describe('App render', () => {
+
     it('should render', () => {
         const component = shallow(<App/>);
-        
         expect(component).toMatchSnapshot();
       });
+
+  });
+
+  describe('App function tests', () => {
+
+    // beforeEach mount App?
+    // afterEach unmount App?
+
+    it('switchViewComponent should update state', () => {
+        let wrapper = mount(<App/>);
+        wrapper.setState({display: null});
+        wrapper.instance().switchViewComponent('testView');
+        const displayState = wrapper.state('display')
+        expect(displayState).toBe('testView');
+      });
+    
+    it('getTeamNameFromTableRow updates State - display', () => {
+        let wrapper = mount(<App/>);
+        wrapper.setState({display: null});
+        wrapper.instance().getTeamNameFromTableRow('Arsenal');
+        const teamNameState = wrapper.state('display')
+        expect(teamNameState).toBe('teamSelected');
+      });
+
+      it('getTeamNameFromTableRow updates State - lastUsedTeamName', () => {
+        let wrapper = mount(<App/>);
+        wrapper.setState({display: null});
+        wrapper.instance().getTeamNameFromTableRow('Arsenal');
+        const teamNameState = wrapper.state('display')
+        expect(teamNameState).toBe('teamSelected');
+      });
+
   });

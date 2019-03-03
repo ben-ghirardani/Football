@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
-// do I need isDate?
-import { isDate } from 'util';
 import convertDate from './ConvertDate'
 
 export default class Match extends Component {

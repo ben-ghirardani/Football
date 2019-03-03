@@ -143,3 +143,14 @@ package.json -->
 touch src/test.js
 
 npm i --save-dev enzyme enzyme-adapter-react-16
+
+added the following to package.json to allow tests that include .png, etc, to run - 
+
+"jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  }
+ 
+import "isomorphic-fetch" added to App.test.js to allow tests to run in a file that includes 'fetch'.

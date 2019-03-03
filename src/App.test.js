@@ -38,10 +38,20 @@ describe('App render', () => {
 
       it('getTeamNameFromTableRow updates State - lastUsedTeamName', () => {
         let wrapper = mount(<App/>);
-        wrapper.setState({display: null});
+        wrapper.setState({lastUsedTeamName: null});
         wrapper.instance().getTeamNameFromTableRow('Arsenal');
-        const teamNameState = wrapper.state('display')
-        expect(teamNameState).toBe('teamSelected');
+        const teamNameState = wrapper.state('lastUsedTeamName');
+        expect(teamNameState).toBe('Arsenal');
       });
+
+      it('getMatchID updates State - singleMatchID', () => {
+        let wrapper = mount(<App/>);
+        wrapper.setState({singleMatchID: null});
+        wrapper.instance().getMatchID(123);
+        const singleMatchIDState = wrapper.state('singleMatchID');
+        expect(singleMatchIDState).toBe(123);
+      });
+
+      
 
   });

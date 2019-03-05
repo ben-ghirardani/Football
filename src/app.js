@@ -127,7 +127,9 @@ export default class App extends Component {
 			})
 		}
 
-		// way to avoid using an array just for one object?
+		// refactor to avoid using an array just for one object?
+		// source data should never have multiple IDs, include error handling anyway? Only ever want one
+		// match returned.
 		useMatchIDToFilterGame(ID) {
 			let matches = this.state.matches.matches
 			let matchedMatch = [];
@@ -149,6 +151,7 @@ export default class App extends Component {
 			this.setState({teamSeasonGames: seasonData})
 		}
 
+		// can this be refactored to put all matches straigt into orderedMatches? Saves fussing with so many arrays
 		combineHomeAndAway(team, allMatches) {
 			const homeMatches = [];
 			const awayMatches = [];

@@ -52,6 +52,71 @@ describe('App render', () => {
         expect(singleMatchIDState).toBe(123);
       });
 
-      
+      it('useMatchIDToFilterGame sorts an array of objects and returns one', () => {
+        let wrapper = mount(<App/>);
+        const matches = {
+            matches: [
+                {id: 1, name: 'Team1'},
+                {id: 2, name: 'Team2'}
+            ]
+        }
+        wrapper.setState({matches})
+        const test1 = wrapper.instance().useMatchIDToFilterGame(1)
+        expect(test1).toEqual([{id: 1, name: 'Team1'}]);
+      });
+
+      it('sendReturnedMatchToState updates State - singleMatch', () => {
+        let wrapper = mount(<App/>);
+        wrapper.setState({singleMatch: null});
+        wrapper.instance().sendReturnedMatchToState('Test data');
+        const singleMatchState = wrapper.state('singleMatch');
+        expect(singleMatchState).toBe('Test data');
+      });
+
+      it('setTeamSeasonGames updates State - teamSeasonGames', () => {
+        let wrapper = mount(<App/>);
+        wrapper.setState({teamSeasonGames: null});
+        wrapper.instance().setTeamSeasonGames('Test data');
+        const teamSeasonGames = wrapper.state('teamSeasonGames');
+        expect(teamSeasonGames).toBe('Test data');
+      });
+
+        // combineHomeAndAway takes a team name and a list of all games,
+        // splits all home games matching team name into an array,
+        // splits all away games matching team name into a second array,
+        // concats those two arrays into a third array and order it ascending order by matchday
+
+        // required to test -> an array of objects, each must have keys named 'matchday' with a value of an int, 
+        // 'homeTeam' and 'awayTeam', each is an oject containing 'name' with a value of a string (team name). 
+
+        it('combineHomeAndAway splits one teams games from all games and orders them by gameweek', () => {
+            let wrapper = mount(<App/>);
+            const allMatches = [
+                {
+                    matchday: 1,
+                    homeTeam: {
+                        name: 'Arsenal'
+                    },
+                    awayTeam: {
+                        name: 'Man Utd'
+                    }
+                },
+                {
+                    matchday: 1,
+                    homeTeam: {
+                        name: 'Man City'
+                    },
+                    awayTeam: {
+                        name: 'Watford'
+                    }
+                }
+            ]
+
+
+            wrapper.setState({teamSeasonGames: null});
+            wrapper.instance().setTeamSeasonGames('Test data');
+            const teamSeasonGames = wrapper.state('teamSeasonGames');
+            expect(teamSeasonGames).toBe('Test data');
+          });
 
   });

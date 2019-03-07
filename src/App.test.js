@@ -26,6 +26,7 @@ describe('App render', () => {
         wrapper.instance().switchViewComponent('testView');
         const displayState = wrapper.state('display')
         expect(displayState).toBe('testView');
+        wrapper.unmount();
       });
     
     it('getTeamNameFromTableRow updates State - display', () => {
@@ -34,6 +35,7 @@ describe('App render', () => {
         wrapper.instance().getTeamNameFromTableRow('Arsenal');
         const teamNameState = wrapper.state('display')
         expect(teamNameState).toBe('teamSelected');
+        wrapper.unmount();
       });
 
       it('getTeamNameFromTableRow updates State - lastUsedTeamName', () => {
@@ -42,6 +44,7 @@ describe('App render', () => {
         wrapper.instance().getTeamNameFromTableRow('Arsenal');
         const teamNameState = wrapper.state('lastUsedTeamName');
         expect(teamNameState).toBe('Arsenal');
+        wrapper.unmount();
       });
 
       it('getMatchID updates State - singleMatchID', () => {
@@ -50,6 +53,7 @@ describe('App render', () => {
         wrapper.instance().getMatchID(123);
         const singleMatchIDState = wrapper.state('singleMatchID');
         expect(singleMatchIDState).toBe(123);
+        wrapper.unmount();
       });
 
       it('useMatchIDToFilterGame sorts an array of objects and returns one', () => {
@@ -63,6 +67,7 @@ describe('App render', () => {
         wrapper.setState({matches})
         const test1 = wrapper.instance().useMatchIDToFilterGame(1)
         expect(test1).toEqual([{id: 1, name: 'Team1'}]);
+        wrapper.unmount();
       });
 
       it('sendReturnedMatchToState updates State - singleMatch', () => {
@@ -71,6 +76,7 @@ describe('App render', () => {
         wrapper.instance().sendReturnedMatchToState('Test data');
         const singleMatchState = wrapper.state('singleMatch');
         expect(singleMatchState).toBe('Test data');
+        wrapper.unmount();
       });
 
       it('setTeamSeasonGames updates State - teamSeasonGames', () => {
@@ -79,6 +85,7 @@ describe('App render', () => {
         wrapper.instance().setTeamSeasonGames('Test data');
         const teamSeasonGames = wrapper.state('teamSeasonGames');
         expect(teamSeasonGames).toBe('Test data');
+        wrapper.unmount();
       });
 
         it('combineHomeAndAway splits one teams games from all games and orders them by gameweek', () => {
@@ -171,12 +178,21 @@ describe('App render', () => {
                         }
                     ]
                 );
+                wrapper.unmount();
           });
 
-          it('renderComponentBasedOnState should render different components depending on state', () => {
-            // set to various states, check that unique components  have rendered
-            const component = shallow(<App/>);
-            expect(component).toMatchSnapshot();
+          it('renderComponentBasedOnState should render loading placeholder if state.loading is true', () => {
+            const wrapper = mount(<App/>);
+            wrapper.setState({display: null, loading: true});
+            const result = wrapper.instance().renderComponentBasedOnState();
+            expect(result).toEqual(<h1>Placeholder Loading Page!</h1>)
+            wrapper.unmount();
           });
+
+        //   AARRGGHH!!!! How can I check if it renders?!?!?!
+        //   it('renderComponentBasedOnState should render table if state.display is table', () => {
+        //     const wrapper = mount(<App/>)
+        //     wrapper.setState({display: "table", loading: false})
+        //   });
 
   });

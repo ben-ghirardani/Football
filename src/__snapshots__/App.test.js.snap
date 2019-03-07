@@ -20,7 +20,9 @@ ShallowWrapper {
         <styled.div>
           <styled.div />
         </styled.div>,
-        undefined,
+        <h1>
+          Placeholder Loading Page!
+        </h1>,
       ],
     },
     "ref": null,
@@ -44,7 +46,17 @@ ShallowWrapper {
         },
         "type": [Function],
       },
-      undefined,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Placeholder Loading Page!",
+        },
+        "ref": null,
+        "rendered": "Placeholder Loading Page!",
+        "type": "h1",
+      },
     ],
     "type": [Function],
   },
@@ -58,7 +70,9 @@ ShallowWrapper {
           <styled.div>
             <styled.div />
           </styled.div>,
-          undefined,
+          <h1>
+            Placeholder Loading Page!
+          </h1>,
         ],
       },
       "ref": null,
@@ -82,7 +96,17 @@ ShallowWrapper {
           },
           "type": [Function],
         },
-        undefined,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Placeholder Loading Page!",
+          },
+          "ref": null,
+          "rendered": "Placeholder Loading Page!",
+          "type": "h1",
+        },
       ],
       "type": [Function],
     },

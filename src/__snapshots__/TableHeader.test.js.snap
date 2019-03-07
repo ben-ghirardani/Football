@@ -1,0 +1,338 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableHeader should render 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <TableHeader />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <th>
+          Pos.
+        </th>,
+        <th>
+          Team
+        </th>,
+        <th>
+          MP
+        </th>,
+        <th>
+          W
+        </th>,
+        <th>
+          D
+        </th>,
+        <th>
+          L
+        </th>,
+        <th>
+          GF
+        </th>,
+        <th>
+          GA
+        </th>,
+        <th>
+          GD
+        </th>,
+        <th>
+          Pts
+        </th>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Pos.",
+        },
+        "ref": null,
+        "rendered": "Pos.",
+        "type": "th",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Team",
+        },
+        "ref": null,
+        "rendered": "Team",
+        "type": "th",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "MP",
+        },
+        "ref": null,
+        "rendered": "MP",
+        "type": "th",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "W",
+        },
+        "ref": null,
+        "rendered": "W",
+        "type": "th",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "D",
+        },
+        "ref": null,
+        "rendered": "D",
+        "type": "th",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "L",
+        },
+        "ref": null,
+        "rendered": "L",
+        "type": "th",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "GF",
+        },
+        "ref": null,
+        "rendered": "GF",
+        "type": "th",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "GA",
+        },
+        "ref": null,
+        "rendered": "GA",
+        "type": "th",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "GD",
+        },
+        "ref": null,
+        "rendered": "GD",
+        "type": "th",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Pts",
+        },
+        "ref": null,
+        "rendered": "Pts",
+        "type": "th",
+      },
+    ],
+    "type": "tr",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <th>
+            Pos.
+          </th>,
+          <th>
+            Team
+          </th>,
+          <th>
+            MP
+          </th>,
+          <th>
+            W
+          </th>,
+          <th>
+            D
+          </th>,
+          <th>
+            L
+          </th>,
+          <th>
+            GF
+          </th>,
+          <th>
+            GA
+          </th>,
+          <th>
+            GD
+          </th>,
+          <th>
+            Pts
+          </th>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Pos.",
+          },
+          "ref": null,
+          "rendered": "Pos.",
+          "type": "th",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Team",
+          },
+          "ref": null,
+          "rendered": "Team",
+          "type": "th",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "MP",
+          },
+          "ref": null,
+          "rendered": "MP",
+          "type": "th",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "W",
+          },
+          "ref": null,
+          "rendered": "W",
+          "type": "th",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "D",
+          },
+          "ref": null,
+          "rendered": "D",
+          "type": "th",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "L",
+          },
+          "ref": null,
+          "rendered": "L",
+          "type": "th",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "GF",
+          },
+          "ref": null,
+          "rendered": "GF",
+          "type": "th",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "GA",
+          },
+          "ref": null,
+          "rendered": "GA",
+          "type": "th",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "GD",
+          },
+          "ref": null,
+          "rendered": "GD",
+          "type": "th",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Pts",
+          },
+          "ref": null,
+          "rendered": "Pts",
+          "type": "th",
+        },
+      ],
+      "type": "tr",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getSnapshotBeforeUpdate": true,
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;

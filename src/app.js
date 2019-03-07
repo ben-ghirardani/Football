@@ -180,8 +180,9 @@ export default class App extends Component {
 		renderComponentBasedOnState() {
 
 			// create a loading component, if !all three display components, then loading, else if table then table, etc 
+			// refactor --> this.state.display to show "loading" instead of extra state.
 			if (this.state.isLoading === true) {
-				<h1>
+				return <h1>
 					Placeholder Loading Page!
 				</h1>
 			}
@@ -190,7 +191,7 @@ export default class App extends Component {
 				return(
 					<OpaqueBackground>
 						<Table>
-							<tbody>
+							<tbody className="tbody">
 								<TableHeader/>
 									{
 										this.state.standings.standings[0].table.map((item, i) => 
